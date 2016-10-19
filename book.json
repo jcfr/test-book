@@ -6,7 +6,8 @@
         "modal-youtube-video",
         "toolbar",
         "versioning",
-        "video"
+        "video",
+        "youtube"
     ],
     "pluginsConfig": {}
 }

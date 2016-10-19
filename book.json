@@ -1,7 +1,8 @@
 {
     "plugins": [
         "canonical-link",
-        "gitversion"
+        "gitversion",
+        "image-captions"
     ],
     "pluginsConfig": {}
 }

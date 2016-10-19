@@ -4,7 +4,8 @@
         "gitversion",
         "image-captions",
         "modal-youtube-video",
-        "toolbar"
+        "toolbar",
+        "versioning"
     ],
     "pluginsConfig": {}
 }

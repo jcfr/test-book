@@ -2,7 +2,8 @@
     "plugins": [
         "canonical-link",
         "gitversion",
-        "image-captions"
+        "image-captions",
+        "modal-youtube-video"
     ],
     "pluginsConfig": {}
 }

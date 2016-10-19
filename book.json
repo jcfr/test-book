@@ -5,7 +5,8 @@
         "image-captions",
         "modal-youtube-video",
         "toolbar",
-        "versioning"
+        "versioning",
+        "video"
     ],
     "pluginsConfig": {}
 }

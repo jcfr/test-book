@@ -3,7 +3,8 @@
         "canonical-link",
         "gitversion",
         "image-captions",
-        "modal-youtube-video"
+        "modal-youtube-video",
+        "toolbar"
     ],
     "pluginsConfig": {}
 }

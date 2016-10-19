@@ -1,6 +1,7 @@
 {
     "plugins": [
-        "canonical-link"
+        "canonical-link",
+        "gitversion"
     ],
     "pluginsConfig": {}
 }

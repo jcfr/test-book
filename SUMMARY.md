@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-   * Extensions
+   * [Extensions](extensions/README.md)
 * Modules
    * [Masking](chapter1.md)
    * [Editor](modules/editor/README.md)

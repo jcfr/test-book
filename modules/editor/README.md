@@ -67,7 +67,8 @@ If you have the [[Documentation/{{documentation/version}}/Extensions/Reporting|R
 Effects operate either by clicking the Apply button in the GUI or by clicking and/or dragging in the slice view.  For operations where you use the GUI, the target label map is the one in the Red slice viewer.  Otherwise the target is based on which slice viewer you click in.
 To use, select the label value for the tools to work on. Clicking on the colored box will provide a pop-up with a selection of labels.
 
-## [[image:Paint.png]] Paint
+
+## ![](paint.png) Paint
 * Pick the radius (in millimeters) of the brush to apply
 * Left click to apply single circle
 * Left click and drag to draw a curve
@@ -76,7 +77,7 @@ To use, select the label value for the tools to work on. Clicking on the colored
 
 The 'smudge' option can be used when working on the boundary between two or more regions.
 
-## [[image:Draw.png]] Draw
+## ![](Draw.png) Draw
 * Left click to lay individual points of an outline
 * Left drag to lay down a continuous line of points
 * 'x' key to delete the last point added

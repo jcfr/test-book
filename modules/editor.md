@@ -36,8 +36,7 @@ The overall goal is to allow users to efficiently and precisely define structure
 
 The label maps can either be defined from within the Editor module itself, or you can use the output of other modules and the basis for editing.
 
-<!-- ---------------------------- -->
-{{documentation/{{documentation/version}}/module-section|Tutorials}}
+## Tutorials
 
 The [[Documentation/{{documentation/version}}/Training| Slicer {{documentation/version}} Training]] page provides several use cases that rely on Editor functionality.
 

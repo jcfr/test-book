@@ -1,11 +1,4 @@
 {
-    "plugins": [
-        "canonical-link",
-        "image-captions",
-        "modal-youtube-video",
-        "toolbar"
-        "video",
-        "youtube"
-    ],
+    "plugins": [  ],
     "pluginsConfig": {}
 }

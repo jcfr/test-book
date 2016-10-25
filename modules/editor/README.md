@@ -1,20 +1,4 @@
-
-# Introduction and Acknowledgements
-
-**Author(s)/Contributor(s):** Steve Pieper (Isomics Inc.), Wendy Plesniak (SPL, BWH), Ron Kikinis (SPL, BWH), Jim Miller (GE)
-{{ gitbook.time }}
-
-**Acknowledgements:** This work is part of the [http://www.na-mic.org/ National Alliance for Medical Image Computing] (NA-MIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
-
-**Contact:** Steve Pieper, pieper@bwh.harvard.edu
-
-| ![](/images/logos/360px-Logo-isomics.png) | ![](/images/logos/Logo-namicnew2.jpg)|![](/images/logos/136px-NAC-logo.png) | ![](/images/logos/200px-GE-logo.png) | 
-| ---------------- |
-| Isomics, Inc. | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) | GE Global Research |
-
-
-## Module Description
-
+# Overview
 
 This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 
 This module is used for manipulating label map volumes. Each of the slice viewers can be operated on independently, although typically the same background and label layer will be used in all slice views. Whichever label map volume is selected in the label layer will be the target for each of the editor effects. Any scalar volume can be used as the background layer. For example, you may wish to create a label map volume based on a high resolution structural scan, and then edit while looking at a lower resolution diffusion scan.
@@ -25,8 +9,7 @@ This module is used for manipulating label map volumes. Each of the slice viewer
 * **Effect** refers to any of the editor tools in the editor tool box.
 * **Labeler** is a type of effect that modifies the existing label map; labelers have a common set of controls options.
 
-
-## Use Cases
+# Use Cases
 The overall goal is to allow users to efficiently and precisely define structures within their volumes as label map volumes.  These label maps can be used for:
 * Surgical/radiation therapy planning
 * Intra-surgery navigation
@@ -36,14 +19,14 @@ The overall goal is to allow users to efficiently and precisely define structure
 
 The label maps can either be defined from within the Editor module itself, or you can use the output of other modules and the basis for editing.
 
-## Tutorials
+# Tutorials
 
 The [training](../../training/README.md) page provides several use cases that rely on Editor functionality.
 
-## Panels and their use
+# Panels and their use
 
 ![](800px-Editor-2011-11-24.png)
-### Single Label Map
+## Single Label Map
 
 A typical straightforward Editor workflow for consists of the following steps:
 * Load a volume.
@@ -59,7 +42,7 @@ A typical straightforward Editor workflow for consists of the following steps:
 * **Note** that if you already have a label map volume as the result of a previous editing step it will be automatically selected when you enter the Editor (i.e. after using some other [segmentation modules](../../training/segmentation/segmentation-modules.md) you will be set up to perform manual edits of the selected label map).  You can use the Set option to pick this label map instead of the default.
 * **Note** that the background and label map settings in the Red slice viewer are used to determine the volumes to edit.  In the Editor Module the background grayscale volume is known as the "Master Volume" because it is used as input to tools such as Threshold Paint.  The map is known as the "Merge Volume" because it contains multiple structures (see below for information about splitting and re-merging the Merge Volume to edit individual structures).
 
-### Per-Structure Volumes
+## Per-Structure Volumes
 *Please familiarize yourself with the Single Label Map approach before attempting to use the Multiple Label Map tools*
 
 This approach can be used to independently work with a single structure using tools, like the Threshold effect, that operate on the entire volume.  To access this functionality, open the Per-Structure Volumes interface by clicking on the downward pointing triangle on the right side of the box.
@@ -79,12 +62,12 @@ This approach can be used to independently work with a single structure using to
 
 If you have the [[Documentation/{{documentation/version}}/Extensions/Reporting|Reporting Extension]] installed, you can export the stuctures to DICOM Segmentation (SEG) format, and will appear as a series for the corresponding study in the  [[Documentation/{{documentation/version}}/Modules/DICOM|DICOM Module]].
 
-## Effects
+# Effects
 
 Effects operate either by clicking the Apply button in the GUI or by clicking and/or dragging in the slice view.  For operations where you use the GUI, the target label map is the one in the Red slice viewer.  Otherwise the target is based on which slice viewer you click in.
 To use, select the label value for the tools to work on. Clicking on the colored box will provide a pop-up with a selection of labels.
 
-### [[image:Paint.png]] Paint
+## [[image:Paint.png]] Paint
 * Pick the radius (in millimeters) of the brush to apply
 * Left click to apply single circle
 * Left click and drag to draw a curve
@@ -93,26 +76,26 @@ To use, select the label value for the tools to work on. Clicking on the colored
 
 The 'smudge' option can be used when working on the boundary between two or more regions.
 
-### [[image:Draw.png]] Draw
+## [[image:Draw.png]] Draw
 * Left click to lay individual points of an outline
 * Left drag to lay down a continuous line of points
 * 'x' key to delete the last point added
 * Right click or 'a' key to apply segment
 
-### [[image:WandEffect.png]] Wand
+## [[image:WandEffect.png]] Wand
 Click to fill connected regions with similar intensities and click multiple times to grow the region. The tolerance option controls how similar adjacent pixels must be in order to be filled.
 * Max pixels per click determines how quickly the region is filled
 * Fill Volume option allows for 3D segmentation
 
-### [[image:Rectangle.png]] Rectangle
+## [[image:Rectangle.png]] Rectangle
 * Left click to start rubber band rectangle
 * Release button to apply
 
-### [[image:LevelTracing.png]] Level Tracing
+## [[image:LevelTracing.png]] Level Tracing
 * Moving the mouse defines an outline where the pixels all have the same background value as the current background pixel
 * Clicking the left mouse button applies that outline to the label map
 
-### [[image:IdentifyIslands.png]] Identify Islands
+## [[image:IdentifyIslands.png]] Identify Islands
 Use this tool to create a unique label value for each connected region in the current label map.  
 Connected regions are defined as groups of pixels which touch each other but are surrounded by zero valued voxels. If FullyConnected is selected, then only voxels that share a face are counted as connected; if unselected, then voxels that touch at an edge or a corner are considered connected.
 
@@ -126,7 +109,7 @@ Changes color of an island, where an Island is a group of connected pixels with 
 * Click any part of the island
 * Pixels that are part of that island will receive the New Label value
 
-### [[image:RemoveIslands.png]] Remove Islands
+## [[image:RemoveIslands.png]] Remove Islands
 Automatically removes unlabelled voxels within a region.
 
 * Useful for removing small areas of noise inside a surrounding thresholded area
@@ -134,29 +117,29 @@ Automatically removes unlabelled voxels within a region.
   * Connectivity mode removes unsegmented islands that are completely enclosed with segmentation
   * Morphology mode removes small regions in and out of the segmentation even if they are partly connected to the larger regions.
 
-### [[image:SaveIsland.png]] Save Island
+## [[image:SaveIsland.png]] Save Island
 Save Island retains the selected island, and removes disconnected pixels with the same label. This is another way to clean up the results of a thresholding operation. This is useful for separating a single connected structure from other structures.
 
-### [[image:ErodeLabel.png]] Erode and [[image:DilateLabel.png]] Dilate
+## [[image:ErodeLabel.png]] Erode and [[image:DilateLabel.png]] Dilate
  
 Add or remove a single layer of pixels from the current label value
 
-### [[image:ChangeLabel.png]] Change Label
+## [[image:ChangeLabel.png]] Change Label
 Changes every voxel in the target label map with the input value to the output value
 
-### Undo/Redo
+## Undo/Redo
 * The Editor can save state before each effect is applied.  This is useful for experimentation and error correction.  Prior to version 3.6.2 this can be somewhat slow and very memory hungry when working with large volumes so it is disabled by default.  As of version 3.6.2 the save operation is lightweight and is enabled by default for up to 100 steps.
 * When enabled the buttons can be used to move forward and back through the volume checkpoints.
 * Note that for some volumes storing the Undo buffer can fail (e.g. due to lack of memory).  In this case the undo/redo operations will fail to operate.
 
-### [[Image:ModelMaker.jpg]] Modelmaker
+## [[Image:ModelMaker.jpg]] Modelmaker
 * A simple interface to of the full CLI module (See [[Documentation/{{documentation/version}}/Modules/ModelMaker|Model Maker Documentation]])
 * The currently selected label number will be used to build.
 * Select smooth model for more pleasing results
 * Just click apply and models of all label maps will be created.
 * Model building runs in the background and the model appears in the 3D view when finished.
 
-### [[image:GrowCutSegment.png]] GrowCutSegment
+## [[image:GrowCutSegment.png]] GrowCutSegment
 
 GrowCut is a powerful algorithm that uses example segmentation to create a full segmentation of the volume.  You can use multiple label colors to define regions that represent parts of anatomical structures and then let the GrowCut algorithm seek out a best labeling for adjacent pixel so they match your example.
 
@@ -166,21 +149,21 @@ See the [https://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Modul
 
 Also see the [https://www.slicer.org/slicerWiki/index.php/Documentation/4.3/Modules/FastGrowCut| Fast GrowCut documentation]. This is an effect that can be added by downloading the extension. It requires memory but is a fast implementation of the GrowCut method
 
-### [[image:WatershedFromMarkerEffect.png]] WatershedFromMarkers
+## [[image:WatershedFromMarkerEffect.png]] WatershedFromMarkers
 
 Watershed From Markers a multi-label segmentation tool which has similar behavior to the GrowCuts algorithm. As input, it expects the current label map to be multiple labels or markers defining different objects. By applying the algorithm, the labels are greedily grown with the minimal gradient value. Objects with well defined edges are desirable for good segmentations with this method.
 
 See the [[Documentation/{{documentation/version}}/Modules/Editor/WatershedFromMarkers| WatershedFromMarkers ]] page for more details.
 
-### [[image:FastMarching.png]] FastMarching
+## [[image:FastMarching.png]] FastMarching
 
 FastMarching is a statistics-based region growing 3D segmentation algorithm. Paint to define seed voxels (one color only). Push "March" button to initiate region growing. Use the marching slider to interactively examine the front propagation history and choose the result you like.
 
-### Labeler Effects
+## Labeler Effects
 
 The following options work for all labelers (draw, paint, level tracing...)
 
-#### Threshold Painting and Drawing
+### Threshold Painting and Drawing
 
 * Use Threshold to determine a threshold range and click on Use for Paint
 * Change into Paint or Draw and click on the Threshold button
@@ -188,7 +171,7 @@ The following options work for all labelers (draw, paint, level tracing...)
 
 Only voxels where the background value is within the threshold range will be set to the new label value.  As of version 4.5, the range is inclusive, so for example if the minimum is zero to ten, all pixels zero and above but less than or equal to ten will be included.
 
-#### Paint Over
+### Paint Over
 
 When enabled, the labels are set to the new value no matter what their previous value was.
 
@@ -198,26 +181,26 @@ When disabled, only 0 (black/transparent) voxels are set to the new value.  Non-
 
 The following keyboard shortcuts are active when you are in the Editor module.  They do not require a modifier key (no Control or Alt required) and they are intended to allow two-handed editing, where on hand is on the mouse and the other hand uses the keyboard to switch modes.
 
-#### Movement
+## Movement
 * '''f''' - move to next slice
 * '''b''' - move to previous slice
 * '''Shift''' - scroll other slices to mouse location
 * '''h''' - toggle the crosshair and put it into navigator mode
 
-#### Label Values (Colors)
+## Label Values (Colors)
 * '''e''' - toggles from the current color to 0 and back (use this while painting or drawing to quickly erase if you go over the line)
 * '''c''' - show color picker
 
-#### Segmentation Control
+## Segmentation Control
 * '''z''' - undo
 * '''y''' - redo
 
-#### Display
+## Display
 * '''o''' - toggle outline mode for label display
 * '''g''' - toggle label opacity
 * '''t''' - swap foreground and background volumes
 
-#### Effect Selection
+## Effect Selection
 * '''Escape''' - cancel current effect
 * '''p''' - select Paint effect
 * '''d''' - select Draw effect
@@ -225,7 +208,7 @@ The following keyboard shortcuts are active when you are in the Editor module.  
 * '''r''' - select Rectangle effect
 * '''Space''' bring up tool selection window at current mouse location
 
-### Label Keystrokes
+## Label Keystrokes
 Label Keystrokes are active for any effect that applies the current label color, such as Paint, Draw, or Wand.
 * '''\''' (backslash key) - "eye dropper" to pick up the current paint color under the cursor (note the slice view must have 'focus', which means you must have clicked in the slice view once before the eye dropper will work correctly)
 
@@ -248,7 +231,6 @@ Label Keystrokes are active for any effect that applies the current label color,
 * Threshold will not work with non-scalar volume background volumes.
 * Mouse wheel can be used to move slice through volume, but on some platforms (mac) it may move more than one slice at a time.
 
-
 # Similar Modules
 * See the [https://www.slicer.org/slicerWiki/index.php/Documentation/4.5#Modules_by_category Segmentation section of the module documentation] for more ways to create label maps.
 
@@ -264,3 +246,18 @@ Pichon E, Tannenbaum A, Kikinis R. A statistically based flow for image segmenta
 # Information for Developers
 
 See the [step-by-step guide to writing an Editor Extension](../../developers/editor-extension.md).
+
+# Contributors
+
+* Author(s)/Contributor(s): Steve Pieper (Isomics Inc.), Wendy Plesniak (SPL, BWH), Ron Kikinis (SPL, BWH), Jim Miller (GE)
+* Contact: Steve Pieper, pieper@bwh.harvard.edu
+
+{{ gitbook.time }}
+
+# Acknowledgements
+
+This work is part of the [http://www.na-mic.org/ National Alliance for Medical Image Computing] (NA-MIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
+
+| ![](/images/logos/360px-Logo-isomics.png) | ![](/images/logos/Logo-namicnew2.jpg)|![](/images/logos/136px-NAC-logo.png) | ![](/images/logos/200px-GE-logo.png) |
+| ---------------- |
+| Isomics, Inc. | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) | GE Global Research |

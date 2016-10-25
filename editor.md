@@ -2,7 +2,7 @@
 # Introduction and Acknowledgements
 
 **Author(s)/Contributor(s):** Steve Pieper (Isomics Inc.), Wendy Plesniak (SPL, BWH), Ron Kikinis (SPL, BWH), Jim Miller (GE)
-{ gitbook.time }
+{{ gitbook.time }}
 
 **Acknowledgements:** This work is part of the [http://www.na-mic.org/ National Alliance for Medical Image Computing] (NA-MIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
 

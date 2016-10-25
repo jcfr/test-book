@@ -192,7 +192,9 @@ Only voxels where the background value is within the threshold range will be set
 When enabled, the labels are set to the new value no matter what their previous value was.
 
 When disabled, only 0 (black/transparent) voxels are set to the new value.  Non-zero values are not changed.
-{{documentation/{{documentation/version}}/module-section|Keystrokes}}
+
+# Keystrokes
+
 The following keyboard shortcuts are active when you are in the Editor module.  They do not require a modifier key (no Control or Alt required) and they are intended to allow two-handed editing, where on hand is on the mouse and the other hand uses the keyboard to switch modes.
 
 #### Movement
@@ -236,12 +238,12 @@ Label Keystrokes are active for any effect that applies the current label color,
 
 # Hints
 [[Image:Selection 139.png|thumb|400px|right|Use of the Label Outline feature (below) vs the default view (above).  Note that the label outlines appear faint in the lower image -- zoom in by clicking on the image to see them as they actually appear in Slicer.]]
-* You can use the [[Documentation/{{documentation/version}}/Modules/ImageLabelCombine|Image Label Combine]] module to make a composite label map from two independent input label maps.  Sometimes it will make sense to have a separate label map for each anatomical structure and then combine them after editing.  In other cases it makes sense to put all structures into the same label map so that you can use the Paint Over option to make clean interfaces between the structures.
-* The [[Documentation/{{documentation/version}}/Modules/ModelMaker|Model Maker]] can automatically make models for all non-zero values in the label map.  The option for Joint Smoothing creates a 'water tight' set of models.  If you build the models independently the smoothing will cause gaps between the models.
+* You can use the [Image Label Combine](../image-label-combine/README.md) module to make a composite label map from two independent input label maps.  Sometimes it will make sense to have a separate label map for each anatomical structure and then combine them after editing.  In other cases it makes sense to put all structures into the same label map so that you can use the Paint Over option to make clean interfaces between the structures.
+* The [Model Maker module](../model-maker/README.md) can automatically make models for all non-zero values in the label map.  The option for Joint Smoothing creates a 'water tight' set of models.  If you build the models independently the smoothing will cause gaps between the models.
 * A large radius paint brush with threshold painting is often a very fast way to segment anatomy that is consistently brighter or darker than the surrounding region, but partially connected to similar nearby structures (this happens a lot).
 * Use the slice viewer menus to control the label map opacity and display mode (to show outlines only or full volume).
 
-{{documentation/{{documentation/version}}/module-section|Limitations}}
+# Limitations
 * Threshold will not work with non-scalar volume background volumes.
 * Mouse wheel can be used to move slice through volume, but on some platforms (mac) it may move more than one slice at a time.
 
@@ -260,5 +262,4 @@ Pichon E, Tannenbaum A, Kikinis R. A statistically based flow for image segmenta
 
 # Information for Developers
 
-
-See the [[Documentation/{{documentation/version}}/EditorExtension|step-by-step guide to writing an Editor Extension]]
+See the [step-by-step guide to writing an Editor Extension](../../developers/editor-extension.md).

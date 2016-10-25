@@ -1,11 +1,9 @@
 {
     "plugins": [
         "canonical-link",
-        "gitversion",
         "image-captions",
         "modal-youtube-video",
-        "toolbar",
-        "versioning",
+        "toolbar"
         "video",
         "youtube"
     ],

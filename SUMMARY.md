@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [Masking](chapter1.md)
-* Editor
+* [Editor](editor.md)
 

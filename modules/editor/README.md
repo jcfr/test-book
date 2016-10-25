@@ -38,7 +38,7 @@ The label maps can either be defined from within the Editor module itself, or yo
 
 ## Tutorials
 
-The [](/training/README.md) page provides several use cases that rely on Editor functionality.
+The [training](/training/README.md) page provides several use cases that rely on Editor functionality.
 
 ## Panels and their use
 

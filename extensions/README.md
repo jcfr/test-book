@@ -37,7 +37,7 @@
 |[![](http://wiki.slicer.org/slicerWiki/images/9/92/TCIABrowser_logo.png)](http://www.slicer.org/slicerWiki/index.php?title=Documentation/Nightly/Extensions/TCIABrowser) | A Module to connect to the TCIA archive, browse the collections, patients and studies and download DICOM files to 3D Slicer.
 |[![](logo-angle-planes.png)](http://wiki.slicer.org/slicerWiki/index.php/Documentation/4.5/Extensions/AnglePlanes) | This Module is used to calculate the angle between two planes by using the normals
 |[![](logo-easy-clip.png)](http://wiki.slicer.org/slicerWiki/index.php/Documentation/4.5/Extensions/EasyClip) | This Module is used to clip one or different 3D Models according to a predetermined plane
-|[![](logo-margin-calculator.png)](http://wiki.slicer.org/slicerWiki/index.php/Documentation/4.5/Extensions/MarginCalculator) | 
+|[![](logo-margin-calculator.png)](http://wiki.slicer.org/slicerWiki/index.php/Documentation/4.5/Extensions/MarginCalculator) | Computes margins for label maps
 |[![](logo-mesh-statistics.png)](http://wiki.slicer.org/slicerWiki/index.php/Documentation/4.5/Extensions/MeshStatistics) | Mesh Statistics allows users to compute descriptive statistics over specific and predefined regions
 |[![](logo-mesh-to-labelmap.png)](http://wiki.slicer.org/slicerWiki/index.php/Documentation/4.5/Extensions/MeshToLabelMap) | This extension computes a label map from a 3D model
 |[![](logo-mp-review.png)](http://wiki.slicer.org/slicerWiki/index.php/Documentation/4.5/Extensions/mpReview) | Multiparametric Image Review (mpReview) module is intended to support review and annotation of multi-parametric image data

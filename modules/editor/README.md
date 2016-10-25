@@ -32,7 +32,7 @@ The overall goal is to allow users to efficiently and precisely define structure
 * Intra-surgery navigation
 * Volume/shape analysis
 * 3D printing
-* Further processing (using, for example, the [Label Statistics](/modules/label_statistics) module
+* Further processing (using, for example, the [Label Statistics](/modules/label_statistics/README.md) module
 
 The label maps can either be defined from within the Editor module itself, or you can use the output of other modules and the basis for editing.
 

@@ -2,4 +2,4 @@
 
 |  |
 |---|
-|
+|![](AnglePlanes_Logo.png)|

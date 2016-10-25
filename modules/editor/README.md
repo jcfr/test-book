@@ -17,7 +17,7 @@
 
 
 This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 
-This module is used for manipulating segmentations. Each of the slice viewers can be operated on independently, although typically the same background and label layer will be used in all slice views. Whichever label map volume is selected in the label layer will be the target for each of the editor effects. Any scalar volume can be used as the background layer. For example, you may wish to create a label map volume based on a high resolution structural scan, and then edit while looking at a lower resolution diffusion scan.
+This module is used for manipulating label map volumes. Each of the slice viewers can be operated on independently, although typically the same background and label layer will be used in all slice views. Whichever label map volume is selected in the label layer will be the target for each of the editor effects. Any scalar volume can be used as the background layer. For example, you may wish to create a label map volume based on a high resolution structural scan, and then edit while looking at a lower resolution diffusion scan.
 
 **Terminology**
 * **Label Map Volume** is a 3D scalar volume node where each voxel is a number indicating the type of tissue at that location. A label volume is associated with a Color Node that maps the numbers into colors and text strings
@@ -45,11 +45,12 @@ The [training](../../training/README.md) page provides several use cases that re
 ![](800px-Editor-2011-11-24.png)
 ### Single Label Map
 
-![](400px-SlicerQT-real_138.png)
 A typical straightforward Editor workflow for consists of the following steps:
 * Load a volume.
 * Enter the Editor module using either the toolbar or the Modules menu button.
 * You will be prompted to select a color table to use for editing (see Color Table Dialog image).
+
+  ![](400px-SlicerQT-real_138.png)
  * Pick a color node that contains the structures you wish to create.  If there are no appropriate tables available, you can create custom nodes in the [Colors module](../colors/README.md).
 * Clicking apply in the Color Table Dialog will create a new label map volume based on the background volume in the Red slice view at the time you entered the Editor.  It will be the same dimensions, orientation, and spacing as the background volume.  But it will be initialized to all zeros and it will have the 'Label Map' property set.  (You can look at these in the "Info" tab of the [Volumes module](../volumes/README.md).
  * If your background was named *t1* the label will be called *t1-label*.

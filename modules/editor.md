@@ -8,7 +8,7 @@
 
 **Contact:** Steve Pieper, pieper@bwh.harvard.edu
 
-| ![](images/logos/360px-Logo-isomics.png) | ![](images/logos/Logo-namicnew2.jpg)|![](images/logos/136px-NAC-logo.png) | ![](images/logos/200px-GE-logo.png) | 
+| ![](/images/logos/360px-Logo-isomics.png) | ![](/images/logos/Logo-namicnew2.jpg)|![](/images/logos/136px-NAC-logo.png) | ![](/images/logos/200px-GE-logo.png) | 
 | ---------------- |
 | Isomics, Inc. | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) | GE Global Research |
 

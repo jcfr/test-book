@@ -38,10 +38,9 @@ The label maps can either be defined from within the Editor module itself, or yo
 
 ## Tutorials
 
-The [[Documentation/{{documentation/version}}/Training| Slicer {{documentation/version}} Training]] page provides several use cases that rely on Editor functionality.
+The [](/training/README.md) page provides several use cases that rely on Editor functionality.
 
-<!-- ---------------------------- -->
-{{documentation/{{documentation/version}}/module-section|Panels and their use}}
+## Panels and their use
 
 [[image:Editor-2011-11-24.png|400px]]
 

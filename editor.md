@@ -8,14 +8,9 @@
 
 **Contact:** Steve Pieper, pieper@bwh.harvard.edu
 
-| ![](360px-Logo-isomics.png) | ![](Logo-namicnew2.jpg)|![](136px-NAC-logo.png) | ![](200px-GE-logo.png) | 
+| ![](images/logos/360px-Logo-isomics.png) | ![](images/logos/Logo-namicnew2.jpg)|![](images/logos/136px-NAC-logo.png) | ![](images/logos/200px-GE-logo.png) | 
 | ---------------- |
 | Isomics, Inc. | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) | GE Global Research |
-
-|{{collaborator|logo|isomics}}|{{collaborator|longname|isomics}}
-|{{collaborator|logo|namic}}|{{collaborator|longname|namic}}
-|{{collaborator|logo|nac}}|{{collaborator|longname|nac}}
-|{{collaborator|logo|ge}}|{{collaborator|longname|ge}}
 
 
 ## Module Description
@@ -31,15 +26,13 @@ This module is used for manipulating segmentations. Each of the slice viewers ca
 * **Labeler** is a type of effect that modifies the existing label map; labelers have a common set of controls options.
 
 
-
-<!-- ---------------------------- -->
-{{documentation/{{documentation/version}}/module-section|Use Cases}}
+## Use Cases
 The overall goal is to allow users to efficiently and precisely define structures within their volumes as label map volumes.  These label maps can be used for:
-*Surgical/radiation therapy planning
-*Intra-surgery navigation
-*Volume/shape analysis
-*3D printing
-*Further processing (using, for example, the [[Documentation/{{documentation/version}}/Modules/LabelStatistics|Label Statistics]] module)
+* Surgical/radiation therapy planning
+* Intra-surgery navigation
+* Volume/shape analysis
+* 3D printing
+* Further processing (using, for example, the [LabelStatistics](Label Statistics) module
 
 The label maps can either be defined from within the Editor module itself, or you can use the output of other modules and the basis for editing.
 

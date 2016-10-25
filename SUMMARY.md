@@ -5,7 +5,7 @@
    * [Masking](chapter1.md)
    * [Editor](modules/editor/README.md)
    * Annotations
-* Extensions
+* [Extensions](extensions/README.md)
 * [Training](training/README.md)
 * Developers
 

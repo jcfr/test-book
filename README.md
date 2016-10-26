@@ -20,6 +20,6 @@ Fedorov A., Beichel R., Kalpathy-Cramer J., Finet J., Fillion-Robin J-C., Pujol 
 
 |  |  |
 | --- | --- |
-| [](slicer-tutorial.png) | The [Slicer Training](training/README.md) page provides a series of updated tutorials and data sets for training in the use of Slicer. |
-| [](slicer-youtube.png) | [3D Slicer YouTube channel](https://www.youtube.com/channel/UC11x1iQ7ydSIFYw4L6wveXg?view_as=public) has been reorganized, new videos developed by the 3D Slicer community added to the channel. |
+| ![](slicer-tutorial.png) | The [Slicer Training](training/README.md) page provides a series of updated tutorials and data sets for training in the use of Slicer. |
+| ![](slicer-youtube.png) | [3D Slicer YouTube channel](https://www.youtube.com/channel/UC11x1iQ7ydSIFYw4L6wveXg?view_as=public) has been reorganized, new videos developed by the 3D Slicer community added to the channel. |
 

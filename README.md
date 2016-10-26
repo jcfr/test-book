@@ -6,10 +6,11 @@
 * A free, [open-source](http://en.wikipedia.org/wiki/Open_source) software available on multiple operating systems: Linux, MacOSX and Windows
 * Extensible, with powerful [plug-in capabilities](developers/README.md) for adding algorithms and applications.
   Features include:
-* Multi organ: from head to toe.
-* Support for multi-modality imaging including, MRI, CT, US, nuclear medicine, and microscopy.
-* Bidirectional interface for devices.
-  There is no restriction on use, but Slicer is not approved for clinical use and intended for research. Permissions and compliance with applicable rules are the responsibility of the user. For details on the license see here
+  * Multi organ: from head to toe
+  * Support for multi-modality imaging including, MRI, CT, US, nuclear medicine, and microscopy
+  * Interface for receiving/sending data from/to devices (such as real-time imaging and position tracking devices)
+
+There is no restriction on use, but Slicer is not approved for clinical use and intended for research. Permissions and compliance with applicable rules are the responsibility of the user. For details on the license see here
 
 # Slicer Training
 

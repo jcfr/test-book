@@ -13,7 +13,7 @@
 
 # Citing Slicer
 
-To acknowledge 3D Slicer as a platform, please cite the Slicer web site \([http:\/\/www.slicer.org](http://www.slicer.org)\) and the following publication: 
+To acknowledge 3D Slicer as a platform, please cite the Slicer web site [http://www.slicer.org](http://www.slicer.org) and the following publication: 
 Fedorov A., Beichel R., Kalpathy-Cramer J., Finet J., Fillion-Robin J-C., Pujol S., Bauer C., Jennings D., Fennessy F., Sonka M., Buatti J., Aylward S.R., Miller J.V., Pieper S., Kikinis R. 3D Slicer as an Image Computing Platform for the Quantitative Imaging Network. Magnetic Resonance Imaging. 2012 Nov;30\(9\):1323-41. PMID: 22770690.
 
 # Slicer Training

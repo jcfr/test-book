@@ -85,7 +85,7 @@ Tips:
 
 # More information
 
-[Developer information](../../developers/annotations/README.md)
+* [Developer information](../../developers/annotations/README.md)
 
 # Contributors
 

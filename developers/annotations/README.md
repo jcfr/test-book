@@ -103,6 +103,7 @@ interactionNode->SetCurrentInteractionMode(vtkMRMLInteractionNode::Place);
 ```
 If you don't set PlaceModePersistence on the interaction node, the mouse mode/current interaction mode will automatically go back to view transform after one ruler has been placed, and you just need to reset the current interaction mode for future placing (the active place node class name is persistent).
 
-# Source code
+# More information
 
-* [Module source code]({{book.slicerSourceCodeBase}}/Modules/Loadable/Annotations)
+* [User manual](../../modules/annotations/README.md)
+* [Source code]({{book.slicerSourceCodeBase}}/Modules/Loadable/Annotations)

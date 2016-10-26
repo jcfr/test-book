@@ -1,6 +1,5 @@
 {
     "plugins": [
-        "disqus",
         "github",
         "edit-link",
         "tags"
@@ -13,7 +12,7 @@
             "url": "https://github.com/lassoan/test-book"
         },
         "edit-link": {
-            "base": "https://github.com/lassoan/test-book/master",
+            "base": "https://github.com/lassoan/test-book",
             "label": {
                     "en": "Edit Page"
             }

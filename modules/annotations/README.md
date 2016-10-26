@@ -1,3 +1,148 @@
+## module-section|Use Cases
+Most frequently used for these scenarios:
+*Using rulers to measure tumor diameters
+* Using ROIs to crop volume rendering
+
+* # module-section|Tutorials
+
+To delete multiple annotations from a list press down the Control key and left click to select annotations in the Annotations GUI, then click on the trash can to delete them.
+
+To move multiple annotations from one list to another, hold down the Shift key and left click to select a group of annotations, then while still holding down the shift key, left click on the selection to drag and drop it.
+
+To access Annotation Properties or Hierarchy Properties, click on the logo under Edit in the annotation table.
+
+
+# Panels and their use
+
+A list of all the panels in the interface, their features, what they mean, and how to use them. 
+
+{|
+|[[Image:Slicer4-1-Annotations-GUI.jpeg|thumb|200px|Annotations]]
+|[[Image:Slicer4-Annotations-ModifyPropeties.jpeg|thumb|200px|Modify Annotation Properties]]
+|[[Image:Slicer4-Annotations-ModifyHierarchy.jpeg|thumb|200px|Modify Hierarchy Properties]]
+|[[Image:Slicer4-Annotations-Toolbar.jpeg|thumb|200px|Annotation tool bar]]
+|}
+{{documentation/{{documentation/version}}/module-parametersdescription}}
+
+
+<!-- ---------------------------- -->
+{{documentation/{{documentation/version}}/module-section|Similar Modules}}
+* The Annotations tool bar at the top of the main Slicer window is used to add new annotations to the scene.
+
+<!-- ---------------------------- -->
+{{documentation/{{documentation/version}}/module-section|References}}
+N/A
+
+<!-- ---------------------------- -->
+{{documentation/{{documentation/version}}/module-section|Information for Developers}}
+{{documentation/{{documentation/version}}/module-developerinfo}}
+
+=== Use the Markups module for fiducials ===
+
+'''Fiducials have been moved to the [http://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Modules/Markups  Markups module].'''
+
+=== Add a Ruler via Python ===
+
+Use this code to programatically add a ruler to the scene:
+
+  rulerNode = slicer.vtkMRMLAnnotationRulerNode()
+  rulerNode.SetPosition1(-10,-10,-10)
+  rulerNode.SetPosition2(10,10,10)
+  rulerNode.Initialize(slicer.mrmlScene)
+
+=== Access to Ruler Locations from Python ===
+
+Starting from the ID of an Annotation hierarchy node that collects a group of rulers, you can get a ruler location using the following Python code:
+  # get the first list of annotations
+  listNodeID = "vtkMRMLAnnotationHierarchyNode2"
+  annotationHierarchyNode = slicer.mrmlScene.GetNodeByID(listNodeID)
+  # get the first in the list
+  listIndex = 0
+  annotation = annotationHierarchyNode.GetNthChildNode(listIndex).GetAssociatedNode()
+  coords1 = [0,0,0]
+  coords2 = [0,0,0]
+  annotation.GetPosition1(coords1)
+  annotation.GetPosition2(coords2)
+  print coords1, coords2
+
+If you have the id of the ruler node, it's more direct:
+  rulerID = "vtkMRMLAnnotationRulerNode1"
+  ruler = slicer.mrmlScene.GetNodeByID(rulerID)
+  coords1 = [0,0,0]
+  coords2 = [0,0,0]
+  ruler.GetPosition1(coords1)
+  ruler.GetPosition2(coords2)
+  print coords1, coords2
+
+=== Placing the GUI into Ruler or ROI Place Mode via Python ===
+
+To programatically set the mouse mode to placing rulers or ROIs use this code from Python:
+
+  selectionNode = slicer.mrmlScene.GetNodeByID("vtkMRMLSelectionNodeSingleton")
+  # place rulers
+  selectionNode.SetReferenceActivePlaceNodeClassName("vtkMRMLAnnotationRulerNode")
+  # to place ROIs use the class name vtkMRMLAnnotationROINode
+  interactionNode = slicer.mrmlScene.GetNodeByID("vtkMRMLInteractionNodeSingleton")
+  placeModePersistence = 1
+  interactionNode.SetPlaceModePersistence(placeModePersistence)
+  # mode 1 is Place, can also be accessed via slicer.vtkMRMLInteractionNode().Place
+  interactionNode.SetCurrentInteractionMode(1)
+
+=== Transforms ===
+Individual annotations are transformable (able to be placed under a transform node), but lists are not. In order to apply a transform to a set of annotations, open the Python console (View -> Python Interactor) and use the following code. First you'll need to get the transform node MRML id from the Data module (click on Display MRML IDs), and save it to a variable:
+  transformNodeID = "vtkMRMLLinearTransformNode5"
+Then get the id of the annotation hierarchy list node that holds the annotations that you wish to transform:
+  listNodeID = "vtkMRMLAnnotationHierarchyNode3"
+Then use this code snippet to apply the transform to all the annotations under the hierarchy node:
+  annotationHierarchyNode = slicer.mrmlScene.GetNodeByID(listNodeID)
+  numNodes = annotationHierarchyNode.GetNumberOfChildrenNodes()
+  for i in range(numNodes):
+    annotation = annotationHierarchyNode.GetNthChildNode(i).GetAssociatedNode()
+    annotation.SetAndObserveTransformNodeID(transformNodeID)
+* [[Documentation/{{documentation/version}}/Modules/Transforms#Information_for_Developers|Read more]] about transforming MRML nodes
+
+===Selection and interaction===
+This section indicates how to change in the GUI the mouse placing mode to start placing nodes.
+ 
+For the selection and interaction nodes, make sure that you access the singleton nodes already in the scene (rather than making your own) via (caveat: this call works on displayable managers, you may have to go a different route to get at the application logic):
+  vtkMRMLApplicationLogic *mrmlAppLogic = this->GetMRMLApplicationLogic();
+  vtkMRMLInteractionNode *inode = mrmlAppLogic->GetInteractionNode();
+  vtkMRMLSelectionNode *snode = mrmlAppLogic->GetSelectionNode();
+If you can't get at the mrml application logic, you can get the nodes from the scene:
+  vtkMRMLInteractionNode *interactionNode = vtkMRMLInteractionNode::SafeDownCast(this->GetMRMLScene()->GetNodeByID("vtkMRMLInteractionNodeSingleton"));
+
+You can then call methods on the nodes or add your own event observers as in
+  vtkSlicerAnnotationModuleLogic::ObserveMRMLScene
+You can see vtkSlicerAnnotationModuleLogic::ProcessMRMLNodesEvents to see how to respond to interaction node changes, but I don't think you'll need to do that.
+
+Slicer4/Base/QTGUI/qSlicerMouseModeToolBar.cxx has a lot of the code you'll need as well, with a slightly different way of getting at the mrml app logic to access the nodes.
+
+The calls you need to make to switch into placing rulers with the mouse are:
+  selectionNode->SetReferenceActivePlaceNodeClassName("vtkMRMLAnnotationRulerNode");
+  interactionNode->SetCurrentInteractionMode(vtkMRMLInteractionNode::Place);
+If you don't set PlaceModePersistence on the interaction node, the mouse mode/current interaction mode will automatically go back to view transform after one ruler has been placed, and you just need to reset the current interaction mode for future placing (the active place node class name is persistent).
+
+<!-- ---------------------------- -->
+{{documentation/{{documentation/version}}/module-footer}}
+<!-- ---------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Overview
 
 This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 
@@ -274,13 +419,13 @@ See the [step-by-step guide to writing an Editor Extension](../../developers/edi
 
 # Contributors
 
-* Author(s)/Contributor(s): Steve Pieper (Isomics Inc.), Wendy Plesniak (SPL, BWH), Ron Kikinis (SPL, BWH), Jim Miller (GE)
-* Contact: Steve Pieper, pieper@bwh.harvard.edu
+* Author(s)/Contributor(s): Nicole Aucoin (SPL, BWH), Kilian Pohl (UPenn), Daniel Haehn (UPenn), Yong Zhang (BWH), Alex Yarmarkovich (Isomics)
+* Contact: Nicole Aucoin, nicole@bwh.harvard.edu
 
 # Acknowledgements
 
 This work is part of the [http://www.na-mic.org/ National Alliance for Medical Image Computing] (NA-MIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
 
-| ![](/images/logos/isomics.png) | ![](/images/logos/namic.jpg)|![](/images/nac.png) | ![](/images/logos/200px-GE-logo.png) |
+| ![](/images/logos/spl.png) | ![](/images/logos/namic.jpg)|![](/images/logos/nac.png) |
 | ---------------- | ---------------- | ---------------- | ---------------- |
-| Isomics, Inc. | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) | GE Global Research |
+| Surgical Planning Laboratory | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) |

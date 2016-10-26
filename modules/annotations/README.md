@@ -1,16 +1,15 @@
-## module-section|Use Cases
+## Use Cases
 Most frequently used for these scenarios:
 *Using rulers to measure tumor diameters
 * Using ROIs to crop volume rendering
 
-* # module-section|Tutorials
+* # Tutorials
 
 To delete multiple annotations from a list press down the Control key and left click to select annotations in the Annotations GUI, then click on the trash can to delete them.
 
 To move multiple annotations from one list to another, hold down the Shift key and left click to select a group of annotations, then while still holding down the shift key, left click on the selection to drag and drop it.
 
 To access Annotation Properties or Hierarchy Properties, click on the logo under Edit in the annotation table.
-
 
 # Panels and their use
 
@@ -25,16 +24,11 @@ A list of all the panels in the interface, their features, what they mean, and h
 {{documentation/{{documentation/version}}/module-parametersdescription}}
 
 
-<!-- ---------------------------- -->
-{{documentation/{{documentation/version}}/module-section|Similar Modules}}
+# Similar Modules
 * The Annotations tool bar at the top of the main Slicer window is used to add new annotations to the scene.
 
-<!-- ---------------------------- -->
-{{documentation/{{documentation/version}}/module-section|References}}
-N/A
+# Information for Developers
 
-<!-- ---------------------------- -->
-{{documentation/{{documentation/version}}/module-section|Information for Developers}}
 {{documentation/{{documentation/version}}/module-developerinfo}}
 
 === Use the Markups module for fiducials ===

@@ -10,6 +10,7 @@ Most frequent use cases:
 # Panels and their use
 
 * Annotations
+  ![](Slicer4-1-Annotations-GUI.jpg)
   * Edit: Edit the properties of all the annotations in the scene
   * Select All Button: Select all annotations and hierarchies
   * Unselect All Button: Unselect all annotations and hierarchies
@@ -33,6 +34,7 @@ Most frequent use cases:
   * Name: The name of the annotation, usually kept short, one letter and a number, as it's displayed in the 3D and 2D windows.
   * Description: A longer text describing this annotation
 * Modify Annotation Hierarchy Properties
+  ![](Slicer4-Annotations-ModifyHierarchy.jpg)
   * Type: The class types for this annotation hierarchy
   * Color: Click on this button to bring up a color picker widget to set the color used for all annotations in this hierarchy when the hierarchy is collapsed.
   * Apply to List: If this checkbox is ticked, change the color on all the annotations in this hierarchy. Default true.
@@ -43,6 +45,7 @@ Most frequent use cases:
   * List Glyph Scale: Set the annotation glyph scale for all annotations in this hierarchy. This slider is not initialized from the current annotation glyph scales but from the default glyph scale for a single annotation. Use the Default button to reset to this default value.
   * List Glyph Type: Set the annotation glyph type for all annotations in this hierarchy. This menu is not initialized from the current annotation glyph types but from the default glyph type for a single annotation. Use the Default button to reset to this default value.
 * Modify Annotation Properties
+  ![](Slicer4-Annotations-ModifyPropeties.jpg)
   * Type: The class type for this annotation. For example, a ruler or a region of interest.
   * Color: Click on this button to bring up a color picker widget to set the color for all parts of the annotation (text, glyphs, lines)
   * Visibility: Click on this button (eye open or closed) to toggle the visibility of the annotation in the 2D and 3D views.
@@ -57,15 +60,8 @@ Most frequent use cases:
   * Lines: This panel is only enabled for rulers. Set the line color, label visibility, label position along the line (from 0-1), tick spacing, maximum number of ticks, opacity, ambient, diffuse, specular material properites on this panel
   * ROI: This panel is only enabled for regions of interest. Set the ranges for the ROI along it's axes, LR, PA, IS. Toggle the ROI visibility and if it's updated interactively on this panel
 * Toolbar
+  ![](Slicer4-Annotations-Toolbar.jpg)
   * Annotations toolbar: Create new annotations by selecting them from the drop down menu. Return to rotate mouse mode by clicking on the rotate icon. Toggle persistent placement of annotations by checking and unchecking the Persistent checkbox
-
-{|
-|[[Image:Slicer4-1-Annotations-GUI.jpeg|thumb|200px|Annotations]]
-|[[Image:Slicer4-Annotations-ModifyPropeties.jpeg|thumb|200px|Modify Annotation Properties]]
-|[[Image:Slicer4-Annotations-ModifyHierarchy.jpeg|thumb|200px|Modify Hierarchy Properties]]
-|[[Image:Slicer4-Annotations-Toolbar.jpeg|thumb|200px|Annotation tool bar]]
-|}
-{{documentation/{{documentation/version}}/module-parametersdescription}}
 
 * To delete multiple annotations from a list press down the Control key and left click to select annotations in the Annotations GUI, then click on the trash can to delete them.
 * To move multiple annotations from one list to another, hold down the Shift key and left click to select a group of annotations, then while still holding down the shift key, left click on the selection to drag and drop it.

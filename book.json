@@ -3,10 +3,6 @@
     "pluginsConfig": {},
     "variables": {
         "slicerVersionMajor": "4",
-        "slicerVersionMinor": "7",
-        "slicerVersion": {
-            "major": "4",
-            "minor": "7"
-            }
+        "slicerVersionMinor": "7"
     }
 }

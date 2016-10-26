@@ -1,7 +1,7 @@
 # Overview
 Test: {{ slicerVersion.major }}.{{ slicerVersion.minor }}
 Test2: major: {{ slicerVersionMajor }} . minor: {{ slicerVersionMinor }}
-[Link](http://wiki.slicer.org/slicerWiki/index.php/Documentation/{{slicerVersionMajor}}.{{slicerVersionMinor}})
+[Link {{ slicerVersionMajor }} . minor: {{ slicerVersionMinor }}](http://wiki.slicer.org/slicerWiki/index.php/Documentation/{{slicerVersionMajor}}my.{{slicerVersionMinor}})
 OK
 
 This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 

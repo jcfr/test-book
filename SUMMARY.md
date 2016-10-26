@@ -2,8 +2,8 @@
 
 * [Introduction](README.md)
 * [Modules](modules.md)
-    * [Annotations](annotations.md)
-    * Data
+    * [Annotations](modules/annotations/README.md)
+    * [Data](data.md)
     * Data Store
     * DICOM
     * [Editor](modules/editor/README.md)

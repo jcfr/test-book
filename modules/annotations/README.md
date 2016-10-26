@@ -16,7 +16,7 @@ The Annotations tool bar at the top of the main Slicer window is used to add new
 ![](Slicer4-Annotations-Toolbar.png)
 
 * Create new annotations by selecting them from the drop down menu. Return to rotate mouse mode by clicking on the rotate icon.
-* To place multiple annotations: click on the arrow-down button and check the Persistent checkbox
+* To place multiple annotations: click on the arrow-down button and then click on Persistent option.
 
 ## Annotations Edit section
 

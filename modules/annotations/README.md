@@ -199,6 +199,6 @@ If you don't set PlaceModePersistence on the interaction node, the mouse mode/cu
 
 The research was funded by an ARRA supplement to NIH NCRR (P41 RR13218). This work is part of the National Alliance for Medical Image Computing (NAMIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
 
-| ![](/images/logos/spl.png) | ![](/images/logos/namic.jpg)|![](/images/logos/nac.png) |
+| ![](/images/logos/spl.png) | ![](/images/logos/namic.png) | ![](/images/logos/nac.png) |
 | ---------------- | ---------------- | ---------------- | ---------------- |
 | Surgical Planning Laboratory | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) |

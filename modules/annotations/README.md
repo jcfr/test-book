@@ -22,34 +22,34 @@ The Annotations tool bar at the top of the main Slicer window is used to add new
 
 ![](Slicer4-1-Annotations-GUI.jpg)
 
-* Select all button: Select all annotations and hierarchies
-* Unselect all button: Unselect all annotations and hierarchies
-* Toggle visibility button: Toggle the visibility of highlighted Annotations. Hierarchies are ignored.
-* Lock selected button: Lock or unlock highlighted annotations. Hierarchies are ignored.
-* Jump slices button: Reset slice views to the first coordinate of the highlighted annotation.
-* Add hierarchy button: Create a new hierarchy. If a hierarchy is currently highlighted, the new one will be a sub-hierarchy
-* Generate report: Display a report of highlighted annotations
-* Delete selected button: Delete highlighted annotations. Hierarchies have to single selected to get deleted.
-* Active list: The name of the currently active list, which controls which list new annotations will be added to. If the top level All Annotations list is active, the module will automatically create separate lists for each type of annotation. Click on a hierarchy in the tree view to make it active and to add new annotations to it.
-* Show hierarchy button: Set all annotations in active list visible
-* Hide hierarchy button: Set all annotations in active list invisible
-* Lock hierarchy button: Set all annotations in active list locked
-* Unlock hierarchy button: Set all annotations in active list to be unlocked
+* Annotation controls
+  * Select all button: Select all annotations and hierarchies
+  * Unselect all button: Unselect all annotations and hierarchies
+  * Toggle visibility button: Toggle the visibility of highlighted Annotations. Hierarchies are ignored.
+  * Lock selected button: Lock or unlock highlighted annotations. Hierarchies are ignored.
+  * Jump slices button: Reset slice views to the first coordinate of the highlighted annotation.
+  * Add hierarchy button: Create a new hierarchy. If a hierarchy is currently highlighted, the new one will be a sub-hierarchy
+  * Generate report: Display a report of highlighted annotations
+  * Delete selected button: Delete highlighted annotations. Hierarchies have to single selected to get deleted.
+  * Active list: The name of the currently active list, which controls which list new annotations will be added to. If the top level All Annotations list is active, the module will automatically create separate lists for each type of annotation. Click on a hierarchy in the tree view to make it active and to add new annotations to it.
+  * Show hierarchy button: Set all annotations in active list visible
+  * Hide hierarchy button: Set all annotations in active list invisible
+  * Lock hierarchy button: Set all annotations in active list locked
+  * Unlock hierarchy button: Set all annotations in active list to be unlocked
+* Annotation hierarchy tree view
+  * Selected: Selected annotations can be passed to command line modules.
+  * Vis: Click on this button (eye open or closed) to toggle the visibility of the annotation in the 2D and 3D views
+  * Lock: Click on this button to make the annotation be locked into place, not responding to mouse events. This is useful if you need to manipulate other things in the scene.
+  * Edit: Click on the icon in the Edit column to bring up the Modify Annotation Properties dialog box
+  * Value: A useful value associated with the annotation (length for rulers)
+  * Name: The name of the annotation, usually kept short, one letter and a number, as it's displayed in the 3D and 2D windows.
+  * Description: A longer text describing this annotation
 
 Tips:
 * To delete multiple annotations from a list press down the Control key and left click to select annotations in the Annotations GUI, then click on the trash can to delete them.
 * To move multiple annotations from one list to another, hold down the Shift key and left click to select a group of annotations, then while still holding down the shift key, left click on the selection to drag and drop it.
 * To access Annotation Properties or Hierarchy Properties, click on the logo under Edit in the annotation table.
 
-## Annotation Hierarchy tree view
-
-* Selected: Selected annotations can be passed to command line modules.
-* Vis: Click on this button (eye open or closed) to toggle the visibility of the annotation in the 2D and 3D views
-* Lock: Click on this button to make the annotation be locked into place, not responding to mouse events. This is useful if you need to manipulate other things in the scene.
-* Edit: Click on the icon in the Edit column to bring up the Modify Annotation Properties dialog box
-* Value: A useful value associated with the annotation (length for rulers)
-* Name: The name of the annotation, usually kept short, one letter and a number, as it's displayed in the 3D and 2D windows.
-* Description: A longer text describing this annotation
 
 ## Modify Annotation Hierarchy Properties
 

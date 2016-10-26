@@ -13,9 +13,7 @@
         },
         "edit-link": {
             "base": "https://github.com/lassoan/test-book",
-            "label": {
-                    "en": "Edit Page"
-            }
+            "label": "Edit Page"
         }
     },
     "variables": {

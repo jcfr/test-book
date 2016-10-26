@@ -1,4 +1,8 @@
 # Overview
+Test: {{ slicerVersion.major }}.{{ slicerVersion.minor }}
+Test2: major: {{ slicerVersionMajor }} . minor: {{ slicerVersionMinor }}
+[Link](http://wiki.slicer.org/slicerWiki/index.php/Documentation/{{slicerVersionMajor}}.{{slicerVersionMinor}})
+OK
 
 This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 
 This module is used for manipulating label map volumes. Each of the slice viewers can be operated on independently, although typically the same background and label layer will be used in all slice views. Whichever label map volume is selected in the label layer will be the target for each of the editor effects. Any scalar volume can be used as the background layer. For example, you may wish to create a label map volume based on a high resolution structural scan, and then edit while looking at a lower resolution diffusion scan.

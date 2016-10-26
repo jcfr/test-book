@@ -18,7 +18,7 @@
     },
     "variables": {
         "slicerVersion": "Nightly",
-        "slicerWikiUrl": "http://wiki.slicer.org/slicerWiki/index.php/Documentation/Nightly"
-        "slicerSourceCodeBase": "https://github.com/Slicer/Slicer/tree/master",
+        "slicerWikiUrl": "http://wiki.slicer.org/slicerWiki/index.php/Documentation/Nightly",
+        "slicerSourceCodeBase": "https://github.com/Slicer/Slicer/tree/master"
     }
 }

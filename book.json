@@ -17,9 +17,7 @@
         }
     },
     "variables": {
-        "slicerVersion": {
-            "major": "4",
-            "minor": "7"
-        }
+        "slicerVersion": "Nightly",
+        "slicerWikiUrl": "http://wiki.slicer.org/slicerWiki/index.php/Documentation/Nightly"
     }
 }

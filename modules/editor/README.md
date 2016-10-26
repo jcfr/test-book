@@ -1,8 +1,4 @@
 # Overview
-Test: {{ slicerVersion.major }}.{{ slicerVersion.minor }}
-Test2: major: {{ slicerVersionMajor }} . minor: {{ slicerVersionMinor }}
-[Link {{ slicerVersionMajor }} . minor: {{ slicerVersionMinor }}](http://wiki.slicer.org/slicerWiki/index.php/Documentation/{{slicerVersionMajor}}my.{{slicerVersionMinor}})
-OK
 
 This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 
 This module is used for manipulating label map volumes. Each of the slice viewers can be operated on independently, although typically the same background and label layer will be used in all slice views. Whichever label map volume is selected in the label layer will be the target for each of the editor effects. Any scalar volume can be used as the background layer. For example, you may wish to create a label map volume based on a high resolution structural scan, and then edit while looking at a lower resolution diffusion scan.
@@ -162,9 +158,9 @@ GrowCut is a powerful algorithm that uses example segmentation to create a full 
 
 To use this, you first define your example segmentation using the normal paint or draw tools as described above.  Define at least two structure classes and then click Apply.  If you are not satisfied with the result, use the Undo button to go back and modify your example. 
 
-See the [https://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Modules/GrowCutSegmentation Grow Cut documentation] for more details.
+See the [Grow Cut module documentation]({{book.slicerWikiUrl}}/Modules//GrowCutSegmentation) for more details.
 
-Also see the [https://www.slicer.org/slicerWiki/index.php/Documentation/4.3/Modules/FastGrowCut| Fast GrowCut documentation]. This is an effect that can be added by downloading the extension. It requires memory but is a fast implementation of the GrowCut method
+Also see the [Fast GrowCut module documentation]({{book.slicerWikiUrl}}/Modules/FastGrowCut). This is an effect that can be added by downloading the extension. It requires memory but is a fast implementation of the GrowCut method.
 
 ## WatershedFromMarkers ![](watershed-from-markers.png)
 
@@ -186,7 +182,7 @@ The following options work for all labelers (draw, paint, level tracing...)
 * Change into Paint or Draw and click on the Threshold button
 * begin painting/drawing
 
-Only voxels where the background value is within the threshold range will be set to the new label value.  As of version 4.5, the range is inclusive, so for example if the minimum is zero to ten, all pixels zero and above but less than or equal to ten will be included.
+Only voxels where the background value is within the threshold range will be set to the new label value.  The range is inclusive, so for example if the minimum is zero to ten, all pixels zero and above but less than or equal to ten will be included.
 
 ### Paint Over
 
@@ -260,7 +256,7 @@ Label Keystrokes are active for any effect that applies the current label color,
 
 # Similar Modules
 
-* See the [https://www.slicer.org/slicerWiki/index.php/Documentation/4.5#Modules_by_category Segmentation section of the module documentation] for more ways to create label maps.
+* [Segment Editor](../segment-editor/README.md) is a completely reworked version of the Editor module. It is still evolving, but eventually it will replace the Editor module. 
 
 # References
 
@@ -280,8 +276,6 @@ See the [step-by-step guide to writing an Editor Extension](../../developers/edi
 
 * Author(s)/Contributor(s): Steve Pieper (Isomics Inc.), Wendy Plesniak (SPL, BWH), Ron Kikinis (SPL, BWH), Jim Miller (GE)
 * Contact: Steve Pieper, pieper@bwh.harvard.edu
-
-{{ gitbook.time }}
 
 # Acknowledgements
 

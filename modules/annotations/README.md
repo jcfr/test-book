@@ -1,19 +1,63 @@
-## Use Cases
-Most frequently used for these scenarios:
-*Using rulers to measure tumor diameters
+# Overview
+
+Create and edit annotations, supplementary information associated with a scene. Currently supported annotations are rulers and regions of interest (ROIs). Use the Markups module for fiducials.
+
+Most frequent use cases:
+* Using rulers to measure tumor diameters
 * Using ROIs to crop volume rendering
 
-* # Tutorials
-
-To delete multiple annotations from a list press down the Control key and left click to select annotations in the Annotations GUI, then click on the trash can to delete them.
-
-To move multiple annotations from one list to another, hold down the Shift key and left click to select a group of annotations, then while still holding down the shift key, left click on the selection to drag and drop it.
-
-To access Annotation Properties or Hierarchy Properties, click on the logo under Edit in the annotation table.
 
 # Panels and their use
 
-A list of all the panels in the interface, their features, what they mean, and how to use them. 
+* Annotations
+  * Edit: Edit the properties of all the annotations in the scene
+  * Select All Button: Select all annotations and hierarchies
+  * Unselect All Button: Unselect all annotations and hierarchies
+  * Visible Selected Button: Toggle the visibility of highlighted Annotations. Hierarchies are ignored.
+  * Lock Selected Button: Lock or unlock highlighted annotations. Hierarchies are ignored.
+  * Jump Slices Button: Reset slice views to the first coordinate of the highlighted annotation.
+  * Add HierarchyButton: Create a new hierarchy. If a hierarchy is currently highlighted, the new one will be a sub-hierarchy
+  * Generate Report: Display a report of highlighted annotations
+  * Delete Selected Button: Delete highlighted annotations. Hierarchies have to single selected to get deleted.
+  * Active list: The name of the currently active list, which controls which list new annotations will be added to. If the top level All Annotations list is active, the module will automatically create separate lists for each type of annotation. Click on a hierarchy in the tree view to make it active and to add new annotations to it.
+  * Visible Hierarchy Button: Set all annotations in active list visible
+  * Invisible Hierarchy Button: Set all annotations in active list invisible
+  * Lock Hierarchy Button: Set all annotations in active list locked
+  * Unlock Hierarchy Button: Set all annotations in active list to be unlocked
+* Annotation Hierarchy tree view
+  * Selected: Selected annotations can be passed to command line modules.
+  * Vis: Click on this button (eye open or closed) to toggle the visibility of the annotation in the 2D and 3D views
+  * Lock: Click on this button to make the annotation be locked into place, not responding to mouse events. This is useful if you need to manipulate other things in the scene.
+  * Edit: Click on the icon in the Edit column to bring up the Modify Annotation Properties dialog box
+  * Value: A useful value associated with the annotation (length for rulers)
+  * Name: The name of the annotation, usually kept short, one letter and a number, as it's displayed in the 3D and 2D windows.
+  * Description: A longer text describing this annotation
+* Modify Annotation Hierarchy Properties
+  * Type: The class types for this annotation hierarchy
+  * Color: Click on this button to bring up a color picker widget to set the color used for all annotations in this hierarchy when the hierarchy is collapsed.
+  * Apply to List: If this checkbox is ticked, change the color on all the annotations in this hierarchy. Default true.
+  * Visibility: Click on this button (eye open or closed) to toggle the visibility of the annotations in this hierarchy in the 2D and 3D views.
+  * Name: The name of the annotation hierarchy, describing the annotations below it.
+  * Description: A longer text describing this annotation hierarchy
+  * List Text Scale: Set the annotation text scale for all annotations in this hierarchy. This slider is not initialized from the current annotation text scales but from the default text scale for a single annotation. Use the Default button to reset to this default value.
+  * List Glyph Scale: Set the annotation glyph scale for all annotations in this hierarchy. This slider is not initialized from the current annotation glyph scales but from the default glyph scale for a single annotation. Use the Default button to reset to this default value.
+  * List Glyph Type: Set the annotation glyph type for all annotations in this hierarchy. This menu is not initialized from the current annotation glyph types but from the default glyph type for a single annotation. Use the Default button to reset to this default value.
+* Modify Annotation Properties
+  * Type: The class type for this annotation. For example, a ruler or a region of interest.
+  * Color: Click on this button to bring up a color picker widget to set the color for all parts of the annotation (text, glyphs, lines)
+  * Visibility: Click on this button (eye open or closed) to toggle the visibility of the annotation in the 2D and 3D views.
+  * Lock: Click on this button to make the annotation be locked into place, not responding to mouse events. This is useful if you need to manipulate other things in the scene.
+  * Name: The name of the annotation, usually kept short, one letter and a number, as it's displayed in the 3D and 2D windows.
+  * Size: Click on the Small, Medium, Large buttons to change the scaling of the annotation
+  * RAS: The world coordinates of this annotation in the default Slicer Right-Anterior-Superior coordinate system. Double click to edit the values
+  * Description: A longer text describing this annotation
+* Modify Annotation Properties: Advanced
+* Text: Set the descriptive text, text color, scale, opacity on this panel
+  * Points: Set the coordinate location of the point(s), glyph color, scale, glyph type, opacity, ambient, diffuse, specular material properites on this panel
+  * Lines: This panel is only enabled for rulers. Set the line color, label visibility, label position along the line (from 0-1), tick spacing, maximum number of ticks, opacity, ambient, diffuse, specular material properites on this panel
+  * ROI: This panel is only enabled for regions of interest. Set the ranges for the ROI along it's axes, LR, PA, IS. Toggle the ROI visibility and if it's updated interactively on this panel
+* Toolbar
+  * Annotations toolbar: Create new annotations by selecting them from the drop down menu. Return to rotate mouse mode by clicking on the rotate icon. Toggle persistent placement of annotations by checking and unchecking the Persistent checkbox
 
 {|
 |[[Image:Slicer4-1-Annotations-GUI.jpeg|thumb|200px|Annotations]]
@@ -23,402 +67,125 @@ A list of all the panels in the interface, their features, what they mean, and h
 |}
 {{documentation/{{documentation/version}}/module-parametersdescription}}
 
-
-# Similar Modules
+* To delete multiple annotations from a list press down the Control key and left click to select annotations in the Annotations GUI, then click on the trash can to delete them.
+* To move multiple annotations from one list to another, hold down the Shift key and left click to select a group of annotations, then while still holding down the shift key, left click on the selection to drag and drop it.
+* To access Annotation Properties or Hierarchy Properties, click on the logo under Edit in the annotation table.
 * The Annotations tool bar at the top of the main Slicer window is used to add new annotations to the scene.
 
 # Information for Developers
 
-{{documentation/{{documentation/version}}/module-developerinfo}}
-
-=== Use the Markups module for fiducials ===
-
-'''Fiducials have been moved to the [http://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Modules/Markups  Markups module].'''
-
-=== Add a Ruler via Python ===
+## Add a Ruler via Python
 
 Use this code to programatically add a ruler to the scene:
+```
+rulerNode = slicer.vtkMRMLAnnotationRulerNode()
+rulerNode.SetPosition1(-10,-10,-10)
+rulerNode.SetPosition2(10,10,10)
+rulerNode.Initialize(slicer.mrmlScene)
+```
 
-  rulerNode = slicer.vtkMRMLAnnotationRulerNode()
-  rulerNode.SetPosition1(-10,-10,-10)
-  rulerNode.SetPosition2(10,10,10)
-  rulerNode.Initialize(slicer.mrmlScene)
-
-=== Access to Ruler Locations from Python ===
+### Access to Ruler Locations from Python
 
 Starting from the ID of an Annotation hierarchy node that collects a group of rulers, you can get a ruler location using the following Python code:
-  # get the first list of annotations
-  listNodeID = "vtkMRMLAnnotationHierarchyNode2"
-  annotationHierarchyNode = slicer.mrmlScene.GetNodeByID(listNodeID)
-  # get the first in the list
-  listIndex = 0
-  annotation = annotationHierarchyNode.GetNthChildNode(listIndex).GetAssociatedNode()
-  coords1 = [0,0,0]
-  coords2 = [0,0,0]
-  annotation.GetPosition1(coords1)
-  annotation.GetPosition2(coords2)
-  print coords1, coords2
+```
+# get the first list of annotations
+listNodeID = "vtkMRMLAnnotationHierarchyNode2"
+annotationHierarchyNode = slicer.mrmlScene.GetNodeByID(listNodeID)
+# get the first in the list
+listIndex = 0
+annotation = annotationHierarchyNode.GetNthChildNode(listIndex).GetAssociatedNode()
+coords1 = [0,0,0]
+coords2 = [0,0,0]
+annotation.GetPosition1(coords1)
+annotation.GetPosition2(coords2)
+print coords1, coords2
+```
 
 If you have the id of the ruler node, it's more direct:
-  rulerID = "vtkMRMLAnnotationRulerNode1"
-  ruler = slicer.mrmlScene.GetNodeByID(rulerID)
-  coords1 = [0,0,0]
-  coords2 = [0,0,0]
-  ruler.GetPosition1(coords1)
-  ruler.GetPosition2(coords2)
-  print coords1, coords2
+```
+rulerID = "vtkMRMLAnnotationRulerNode1"
+ruler = slicer.mrmlScene.GetNodeByID(rulerID)
+coords1 = [0,0,0]
+coords2 = [0,0,0]
+ruler.GetPosition1(coords1)
+ruler.GetPosition2(coords2)
+print coords1, coords2
+```
 
-=== Placing the GUI into Ruler or ROI Place Mode via Python ===
+### Placing the GUI into Ruler or ROI Place Mode via Python
 
 To programatically set the mouse mode to placing rulers or ROIs use this code from Python:
 
-  selectionNode = slicer.mrmlScene.GetNodeByID("vtkMRMLSelectionNodeSingleton")
-  # place rulers
-  selectionNode.SetReferenceActivePlaceNodeClassName("vtkMRMLAnnotationRulerNode")
-  # to place ROIs use the class name vtkMRMLAnnotationROINode
-  interactionNode = slicer.mrmlScene.GetNodeByID("vtkMRMLInteractionNodeSingleton")
-  placeModePersistence = 1
-  interactionNode.SetPlaceModePersistence(placeModePersistence)
-  # mode 1 is Place, can also be accessed via slicer.vtkMRMLInteractionNode().Place
-  interactionNode.SetCurrentInteractionMode(1)
+```
+selectionNode = slicer.mrmlScene.GetNodeByID("vtkMRMLSelectionNodeSingleton")
+# place rulers
+selectionNode.SetReferenceActivePlaceNodeClassName("vtkMRMLAnnotationRulerNode")
+# to place ROIs use the class name vtkMRMLAnnotationROINode
+interactionNode = slicer.mrmlScene.GetNodeByID("vtkMRMLInteractionNodeSingleton")
+placeModePersistence = 1
+interactionNode.SetPlaceModePersistence(placeModePersistence)
+# mode 1 is Place, can also be accessed via slicer.vtkMRMLInteractionNode().Place
+interactionNode.SetCurrentInteractionMode(1)
+```
 
-=== Transforms ===
+### Transforms
+
 Individual annotations are transformable (able to be placed under a transform node), but lists are not. In order to apply a transform to a set of annotations, open the Python console (View -> Python Interactor) and use the following code. First you'll need to get the transform node MRML id from the Data module (click on Display MRML IDs), and save it to a variable:
-  transformNodeID = "vtkMRMLLinearTransformNode5"
+```
+transformNodeID = "vtkMRMLLinearTransformNode5"
+```
 Then get the id of the annotation hierarchy list node that holds the annotations that you wish to transform:
-  listNodeID = "vtkMRMLAnnotationHierarchyNode3"
+```
+listNodeID = "vtkMRMLAnnotationHierarchyNode3"
+```
 Then use this code snippet to apply the transform to all the annotations under the hierarchy node:
-  annotationHierarchyNode = slicer.mrmlScene.GetNodeByID(listNodeID)
-  numNodes = annotationHierarchyNode.GetNumberOfChildrenNodes()
-  for i in range(numNodes):
-    annotation = annotationHierarchyNode.GetNthChildNode(i).GetAssociatedNode()
-    annotation.SetAndObserveTransformNodeID(transformNodeID)
-* [[Documentation/{{documentation/version}}/Modules/Transforms#Information_for_Developers|Read more]] about transforming MRML nodes
+```
+annotationHierarchyNode = slicer.mrmlScene.GetNodeByID(listNodeID)
+numNodes = annotationHierarchyNode.GetNumberOfChildrenNodes()
+for i in range(numNodes):
+  annotation = annotationHierarchyNode.GetNthChildNode(i).GetAssociatedNode()
+  annotation.SetAndObserveTransformNodeID(transformNodeID)
+```
+Read more about transforming MRML nodes in [Transforms module documentation](../Transforms/README.md).
 
-===Selection and interaction===
+### Selection and interaction
+
 This section indicates how to change in the GUI the mouse placing mode to start placing nodes.
  
 For the selection and interaction nodes, make sure that you access the singleton nodes already in the scene (rather than making your own) via (caveat: this call works on displayable managers, you may have to go a different route to get at the application logic):
-  vtkMRMLApplicationLogic *mrmlAppLogic = this->GetMRMLApplicationLogic();
-  vtkMRMLInteractionNode *inode = mrmlAppLogic->GetInteractionNode();
-  vtkMRMLSelectionNode *snode = mrmlAppLogic->GetSelectionNode();
-If you can't get at the mrml application logic, you can get the nodes from the scene:
-  vtkMRMLInteractionNode *interactionNode = vtkMRMLInteractionNode::SafeDownCast(this->GetMRMLScene()->GetNodeByID("vtkMRMLInteractionNodeSingleton"));
+```
+vtkMRMLApplicationLogic *mrmlAppLogic = this->GetMRMLApplicationLogic();
+vtkMRMLInteractionNode *inode = mrmlAppLogic->GetInteractionNode();
+vtkMRMLSelectionNode *snode = mrmlAppLogic->GetSelectionNode();
+```
 
+If you can't get at the mrml application logic, you can get the nodes from the scene:
+```
+vtkMRMLInteractionNode *interactionNode = vtkMRMLInteractionNode::SafeDownCast(this->GetMRMLScene()->GetNodeByID("vtkMRMLInteractionNodeSingleton"));
+```
 You can then call methods on the nodes or add your own event observers as in
-  vtkSlicerAnnotationModuleLogic::ObserveMRMLScene
+```
+vtkSlicerAnnotationModuleLogic::ObserveMRMLScene
+```
 You can see vtkSlicerAnnotationModuleLogic::ProcessMRMLNodesEvents to see how to respond to interaction node changes, but I don't think you'll need to do that.
 
 Slicer4/Base/QTGUI/qSlicerMouseModeToolBar.cxx has a lot of the code you'll need as well, with a slightly different way of getting at the mrml app logic to access the nodes.
 
 The calls you need to make to switch into placing rulers with the mouse are:
-  selectionNode->SetReferenceActivePlaceNodeClassName("vtkMRMLAnnotationRulerNode");
-  interactionNode->SetCurrentInteractionMode(vtkMRMLInteractionNode::Place);
+```
+selectionNode->SetReferenceActivePlaceNodeClassName("vtkMRMLAnnotationRulerNode");
+interactionNode->SetCurrentInteractionMode(vtkMRMLInteractionNode::Place);
+```
 If you don't set PlaceModePersistence on the interaction node, the mouse mode/current interaction mode will automatically go back to view transform after one ruler has been placed, and you just need to reset the current interaction mode for future placing (the active place node class name is persistent).
-
-<!-- ---------------------------- -->
-{{documentation/{{documentation/version}}/module-footer}}
-<!-- ---------------------------- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Overview
-
-This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 
-This module is used for manipulating label map volumes. Each of the slice viewers can be operated on independently, although typically the same background and label layer will be used in all slice views. Whichever label map volume is selected in the label layer will be the target for each of the editor effects. Any scalar volume can be used as the background layer. For example, you may wish to create a label map volume based on a high resolution structural scan, and then edit while looking at a lower resolution diffusion scan.
-
-**Terminology**
-* **Label Map Volume** is a 3D scalar volume node where each voxel is a number indicating the type of tissue at that location. A label volume is associated with a Color Node that maps the numbers into colors and text strings
-* **Slice Viewer** refers the Red, Yellow, and Green windows that display volume slices on the slicer interface.
-* **Effect** refers to any of the editor tools in the editor tool box.
-* **Labeler** is a type of effect that modifies the existing label map; labelers have a common set of controls options.
-
-# Use Cases
-
-The overall goal is to allow users to efficiently and precisely define structures within their volumes as label map volumes.  These label maps can be used for:
-* Surgical/radiation therapy planning
-* Intra-surgery navigation
-* Volume/shape analysis
-* 3D printing
-* Further processing (using, for example, the [Label Statistics](../label_statistics/README.md) module
-
-The label maps can either be defined from within the Editor module itself, or you can use the output of other modules and the basis for editing.
-
-# Tutorials
-
-The [training](../../training/README.md) page provides several use cases that rely on Editor functionality.
-
-# Panels and their use
-
-![](800px-Editor-2011-11-24.png)
-
-## Single Label Map
-
-A typical straightforward Editor workflow for consists of the following steps:
-* Load a volume.
-* Enter the Editor module using either the toolbar or the Modules menu button.
-* You will be prompted to select a color table to use for editing (see Color Table Dialog image).
-
-  ![](400px-SlicerQT-real_138.png)
- * Pick a color node that contains the structures you wish to create.  If there are no appropriate tables available, you can create custom nodes in the [Colors module](../colors/README.md).
-* Clicking apply in the Color Table Dialog will create a new label map volume based on the background volume in the Red slice view at the time you entered the Editor.  It will be the same dimensions, orientation, and spacing as the background volume.  But it will be initialized to all zeros and it will have the 'Label Map' property set.  (You can look at these in the "Info" tab of the [Volumes module](../volumes/README.md).
- * If your background was named *t1* the label will be called *t1-label*.
-* When label map volume is selected, the edit tools frame will automatically expand and you can use the Editor Effects to define your structures.
-
-* **Note** that if you already have a label map volume as the result of a previous editing step it will be automatically selected when you enter the Editor (i.e. after using some other [segmentation modules](../../training/segmentation/segmentation-modules.md) you will be set up to perform manual edits of the selected label map).  You can use the Set option to pick this label map instead of the default.
-* **Note** that the background and label map settings in the Red slice viewer are used to determine the volumes to edit.  In the Editor Module the background grayscale volume is known as the "Master Volume" because it is used as input to tools such as Threshold Paint.  The map is known as the "Merge Volume" because it contains multiple structures (see below for information about splitting and re-merging the Merge Volume to edit individual structures).
-
-## Per-Structure Volumes
-
-*Please familiarize yourself with the Single Label Map approach before attempting to use the Multiple Label Map tools*
-
-This approach can be used to independently work with a single structure using tools, like the Threshold effect, that operate on the entire volume.  To access this functionality, open the Per-Structure Volumes interface by clicking on the downward pointing triangle on the right side of the box.
-
-* Start with a Merge Volume that will contain all the structures of interest.
- * If you have already started defining the individual structures with different label values in the editor, or if you used something like Otsu Segmentation to generate a label map, then you can use the Split Merge Volume button to create a new volume for each unique label value in the Merge Volume.
-  * If you are starting from scratch, you can use the Add Structure button to define new label volumes.  
-    * Add Structure will prompt you for a label value based on the Color Table selected when the Merge Volume was created.
-    * The new Structure Volume will be selected for editing.
-* You can click in the Per-Structure Volumes list box to select the current label map for editing (so that you can easily toggle between the Structure Volumes).
-* After defining the individual structures, you can use the Merge All button to put the volumes back into the Merge Volume.
-  * *Hint*: If the structures overlap, you can use the Order column to define the priority of the structures during the merge process.'' 
-* Use Merge And Build to create a set of modules from the merged volume.
-  * This uses the Joint Smoothing option of the [Model Maker module](../model_maker/README.md) to create watertight models.
-  * ''Hint: you can use the Model Maker module to manipulate other building parameters.'' 
-* The Delete Structures button will remove the Per-Structure Volumes from your scene.  If you want to delete a single volume, use the [Data module](../data/README.md).
-
-If you have the [Reporting extension](../../extensions/README.md) installed, you can export the stuctures to DICOM Segmentation (SEG) format, and will appear as a series for the corresponding study in the [DICOM module](../dicom/README.md).
-
-# Effects
-
-Effects operate either by clicking the Apply button in the GUI or by clicking and/or dragging in the slice view.  For operations where you use the GUI, the target label map is the one in the Red slice viewer.  Otherwise the target is based on which slice viewer you click in.
-To use, select the label value for the tools to work on. Clicking on the colored box will provide a pop-up with a selection of labels.
-
-## Paint ![](paint.png)
-
-* Pick the radius (in millimeters) of the brush to apply
-* Left click to apply single circle
-* Left click and drag to draw a curve
-* A trace of circles is left which are applied when the mouse button is released
-* Sphere mode applies the radius to slices above and below the current slice.
-
-The 'smudge' option can be used when working on the boundary between two or more regions.
-
-## Draw ![](draw.png)
-
-* Left click to lay individual points of an outline
-* Left drag to lay down a continuous line of points
-* 'x' key to delete the last point added
-* Right click or 'a' key to apply segment
-
-## Wand  ![](wand.png)
-
-Click to fill connected regions with similar intensities and click multiple times to grow the region. The tolerance option controls how similar adjacent pixels must be in order to be filled.
-* Max pixels per click determines how quickly the region is filled
-* Fill Volume option allows for 3D segmentation
-
-## Rectangle ![](rectangle.png)
-* Left click to start rubber band rectangle
-* Release button to apply
-
-## Level Tracing ![](level-tracing.png)
-
-* Moving the mouse defines an outline where the pixels all have the same background value as the current background pixel
-* Clicking the left mouse button applies that outline to the label map
-
-## Identify Islands ![](identify-islands.png)
-
-Use this tool to create a unique label value for each connected region in the current label map.  
-Connected regions are defined as groups of pixels which touch each other but are surrounded by zero valued voxels. If FullyConnected is selected, then only voxels that share a face are counted as connected; if unselected, then voxels that touch at an edge or a corner are considered connected.
-
-'''Note:''' Be aware that all non-zero label values labels values are considered equal by this filter and that the result will renumber the resulting islands in order of size.
-'''Note:''' The output label values use the currently selected color table, but the names assigned to islands are arbitrary.  Label values are assigned in order of the size of the island starting with 1.  The value of 0 is assigned to the background.
-
-## Change Island ![](change-island.png)
-
-Changes color of an island, where an Island is a group of connected pixels with the same label. This does not change other voxels with the same label. This tool is useful after thresholding, to separate anatomy further.
-* Click Change Island
-* Click New Label and select a color, or enter a color number
-* Click any part of the island
-* Pixels that are part of that island will receive the New Label value
-
-## Remove Islands ![](remove-islands.png)
-
-Automatically removes unlabelled voxels within a region.
-
-* Useful for removing small areas of noise inside a surrounding thresholded area
-* Two modes are supported:
-  * Connectivity mode removes unsegmented islands that are completely enclosed with segmentation
-  * Morphology mode removes small regions in and out of the segmentation even if they are partly connected to the larger regions.
-
-## Save Island ![](save-island.png)
-Save Island retains the selected island, and removes disconnected pixels with the same label. This is another way to clean up the results of a thresholding operation. This is useful for separating a single connected structure from other structures.
-
-## Erode and Dilate ![](erode-label.png) ![](dilate-label.png)
- 
-Add or remove a single layer of pixels from the current label value
-
-## Change Label ![](change-label.png)
-
-Changes every voxel in the target label map with the input value to the output value
-
-## Undo/Redo ![](previous-check-point.png) ![](next-check-point.png)
-
-* The Editor can save state before each effect is applied.  This is useful for experimentation and error correction.  Prior to version 3.6.2 this can be somewhat slow and very memory hungry when working with large volumes so it is disabled by default.  As of version 3.6.2 the save operation is lightweight and is enabled by default for up to 100 steps.
-* When enabled the buttons can be used to move forward and back through the volume checkpoints.
-* Note that for some volumes storing the Undo buffer can fail (e.g. due to lack of memory).  In this case the undo/redo operations will fail to operate.
-
-## Model maker ![](make-model.png)
-
-* A simple interface to of the full CLI module (See [[Documentation/{{documentation/version}}/Modules/ModelMaker|Model Maker Documentation]])
-* The currently selected label number will be used to build.
-* Select smooth model for more pleasing results
-* Just click apply and models of all label maps will be created.
-* Model building runs in the background and the model appears in the 3D view when finished.
-
-## GrowCutSegment ![](grow-cut-segment.png)
-
-GrowCut is a powerful algorithm that uses example segmentation to create a full segmentation of the volume.  You can use multiple label colors to define regions that represent parts of anatomical structures and then let the GrowCut algorithm seek out a best labeling for adjacent pixel so they match your example.
-
-To use this, you first define your example segmentation using the normal paint or draw tools as described above.  Define at least two structure classes and then click Apply.  If you are not satisfied with the result, use the Undo button to go back and modify your example. 
-
-See the [Grow Cut module documentation]({{book.slicerWikiUrl}}/Modules//GrowCutSegmentation) for more details.
-
-Also see the [Fast GrowCut module documentation]({{book.slicerWikiUrl}}/Modules/FastGrowCut). This is an effect that can be added by downloading the extension. It requires memory but is a fast implementation of the GrowCut method.
-
-## WatershedFromMarkers ![](watershed-from-markers.png)
-
-Watershed From Markers a multi-label segmentation tool which has similar behavior to the GrowCuts algorithm. As input, it expects the current label map to be multiple labels or markers defining different objects. By applying the algorithm, the labels are greedily grown with the minimal gradient value. Objects with well defined edges are desirable for good segmentations with this method.
-
-See the [[Documentation/{{documentation/version}}/Modules/Editor/WatershedFromMarkers| WatershedFromMarkers ]] page for more details.
-
-## FastMarching ![](fast-marching.png)
-
-FastMarching is a statistics-based region growing 3D segmentation algorithm. Paint to define seed voxels (one color only). Push "March" button to initiate region growing. Use the marching slider to interactively examine the front propagation history and choose the result you like.
-
-## Labeler Effects
-
-The following options work for all labelers (draw, paint, level tracing...)
-
-### Threshold Painting and Drawing
-
-* Use Threshold to determine a threshold range and click on Use for Paint
-* Change into Paint or Draw and click on the Threshold button
-* begin painting/drawing
-
-Only voxels where the background value is within the threshold range will be set to the new label value.  The range is inclusive, so for example if the minimum is zero to ten, all pixels zero and above but less than or equal to ten will be included.
-
-### Paint Over
-
-When enabled, the labels are set to the new value no matter what their previous value was.
-
-When disabled, only 0 (black/transparent) voxels are set to the new value.  Non-zero values are not changed.
-
-# Keystrokes
-
-The following keyboard shortcuts are active when you are in the Editor module.  They do not require a modifier key (no Control or Alt required) and they are intended to allow two-handed editing, where on hand is on the mouse and the other hand uses the keyboard to switch modes.
-
-## Movement
-
-* '''f''' - move to next slice
-* '''b''' - move to previous slice
-* '''Shift''' - scroll other slices to mouse location
-* '''h''' - toggle the crosshair and put it into navigator mode
-
-## Label Values (Colors)
-
-* '''e''' - toggles from the current color to 0 and back (use this while painting or drawing to quickly erase if you go over the line)
-* '''c''' - show color picker
-
-## Segmentation Control
-
-* '''z''' - undo
-* '''y''' - redo
-
-## Display
-
-* '''o''' - toggle outline mode for label display
-* '''g''' - toggle label opacity
-* '''t''' - swap foreground and background volumes
-
-## Effect Selection
-
-* '''Escape''' - cancel current effect
-* '''p''' - select Paint effect
-* '''d''' - select Draw effect
-* '''w''' - select Wand effect
-* '''r''' - select Rectangle effect
-* '''Space''' bring up tool selection window at current mouse location
-
-## Label Keystrokes
-
-Label Keystrokes are active for any effect that applies the current label color, such as Paint, Draw, or Wand.
-* '''\''' (backslash key) - "eye dropper" to pick up the current paint color under the cursor (note the slice view must have 'focus', which means you must have clicked in the slice view once before the eye dropper will work correctly)
-
-### Draw Effect Keystrokes
-
-* '''a''' or '''Enter''' - apply the current outline 
-* '''x''' - delete last point added 
-
-### Paint Effect Keystrokes
-
-* '''-''' or '''_''' - shrink the current radius by 20%
-* '''+''' or '''=''' - grow the current radius by 20%
-
-# Hints
-
-[[Image:Selection 139.png|thumb|400px|right|Use of the Label Outline feature (below) vs the default view (above).  Note that the label outlines appear faint in the lower image -- zoom in by clicking on the image to see them as they actually appear in Slicer.]]
-* You can use the [Image Label Combine](../image-label-combine/README.md) module to make a composite label map from two independent input label maps.  Sometimes it will make sense to have a separate label map for each anatomical structure and then combine them after editing.  In other cases it makes sense to put all structures into the same label map so that you can use the Paint Over option to make clean interfaces between the structures.
-* The [Model Maker module](../model-maker/README.md) can automatically make models for all non-zero values in the label map.  The option for Joint Smoothing creates a 'water tight' set of models.  If you build the models independently the smoothing will cause gaps between the models.
-* A large radius paint brush with threshold painting is often a very fast way to segment anatomy that is consistently brighter or darker than the surrounding region, but partially connected to similar nearby structures (this happens a lot).
-* Use the slice viewer menus to control the label map opacity and display mode (to show outlines only or full volume).
-
-# Limitations
-
-* Threshold will not work with non-scalar volume background volumes.
-* Mouse wheel can be used to move slice through volume, but on some platforms (mac) it may move more than one slice at a time.
-
-# Similar Modules
-
-* [Segment Editor](../segment-editor/README.md) is a completely reworked version of the Editor module. It is still evolving, but eventually it will replace the Editor module. 
-
-# References
-
-[[Slicer_3.6:Training |Training materials and tutorials from earlier versions of slicer]] may help give ideas about how to use these tools.
-
-The GrowCut algorithm is presented here: 
-V. Vezhnevets and V. Konouchine, "GrowCut - Interactive multi-label N-D image segmentation", in Proc. Graphicon, 2005. pp. 150--156.
-
-FastMarching algorithm is available here:
-Pichon E, Tannenbaum A, Kikinis R. A statistically based flow for image segmentation. Medical Image Analysis. 2004 September;8(3):267–274. http://www.spl.harvard.edu/publications/item/view/193
-
-# Information for Developers
-
-See the [step-by-step guide to writing an Editor Extension](../../developers/editor-extension.md).
 
 # Contributors
 
-* Author(s)/Contributor(s): Nicole Aucoin (SPL, BWH), Kilian Pohl (UPenn), Daniel Haehn (UPenn), Yong Zhang (BWH), Alex Yarmarkovich (Isomics)
+* Author(s)/Contributor(s): Nicole Aucoin (SPL, BWH), Kilian Pohl (UPenn), Daniel Haehn (UPenn), Yong Zhang (BWH), Alex Yarmarkovich (Isomics), Wendy Plesniak (SPL, BWH)
 * Contact: Nicole Aucoin, nicole@bwh.harvard.edu
 
 # Acknowledgements
 
-This work is part of the [http://www.na-mic.org/ National Alliance for Medical Image Computing] (NA-MIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
+The research was funded by an ARRA supplement to NIH NCRR (P41 RR13218). This work is part of the National Alliance for Medical Image Computing (NAMIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
 
 | ![](/images/logos/spl.png) | ![](/images/logos/namic.jpg)|![](/images/logos/nac.png) |
 | ---------------- | ---------------- | ---------------- | ---------------- |

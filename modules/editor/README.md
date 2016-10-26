@@ -130,7 +130,7 @@ Automatically removes unlabelled voxels within a region.
 ## Save Island ![](save-island.png)
 Save Island retains the selected island, and removes disconnected pixels with the same label. This is another way to clean up the results of a thresholding operation. This is useful for separating a single connected structure from other structures.
 
-## Erode and Dilate ![](eroda-label.png) ![](dilate-label.png)
+## Erode and Dilate ![](erode-label.png) ![](dilate-label.png)
  
 Add or remove a single layer of pixels from the current label value
 

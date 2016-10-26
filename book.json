@@ -1,6 +1,24 @@
 {
-    "plugins": [  ],
-    "pluginsConfig": {},
+    "plugins": [
+        "disqus",
+        "github",
+        "edit-link",
+        "tags"
+    ],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "algorithm4bill"
+        },
+        "github": {
+            "url": "https://github.com/lassoan/test-book"
+        },
+        "edit-link": {
+            "base": "https://github.com/lassoan/test-book/master",
+            "label": {
+                    "en": "Edit Page"
+            }
+        }
+    },
     "variables": {
         "slicerVersionMajor": "4",
         "slicerVersionMinor": "7"

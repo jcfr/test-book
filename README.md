@@ -13,6 +13,7 @@
 
 Test: {{slicerVersion.major}}.{{slicerVersion.minor}}
 [Link](http://wiki.slicer.org/slicerWiki/index.php/Documentation/{{slicerVersion.major}}.{{slicerVersion.minor}})
+OK
 # Citing Slicer
 
 To acknowledge 3D Slicer as a platform, please cite the Slicer web site [http://www.slicer.org](http://www.slicer.org) and the following publication: 

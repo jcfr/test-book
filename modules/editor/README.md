@@ -288,5 +288,5 @@ See the [step-by-step guide to writing an Editor Extension](../../developers/edi
 This work is part of the [http://www.na-mic.org/ National Alliance for Medical Image Computing] (NA-MIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
 
 | ![](/images/logos/360px-Logo-isomics.png) | ![](/images/logos/Logo-namicnew2.jpg)|![](/images/logos/136px-NAC-logo.png) | ![](/images/logos/200px-GE-logo.png) |
-| ---------------- |
+| ---------------- | ---------------- | ---------------- | ---------------- |
 | Isomics, Inc. | National Alliance for Medical Image Computing (NA-MIC) | Neuroimage Analysis Center (NAC) | GE Global Research |

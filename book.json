@@ -12,8 +12,7 @@
             "url": "https://github.com/lassoan/test-book"
         },
         "edit-link": {
-            "base": "https://github.com/lassoan/test-book/edit/master",
-            "label": "Edit Page"
+            "base": "https://github.com/lassoan/test-book/edit/master"
         }
     },
     "variables": {

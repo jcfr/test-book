@@ -172,11 +172,11 @@ See the [[Documentation/{{documentation/version}}/Modules/Editor/WatershedFromMa
 
 FastMarching is a statistics-based region growing 3D segmentation algorithm. Paint to define seed voxels (one color only). Push "March" button to initiate region growing. Use the marching slider to interactively examine the front propagation history and choose the result you like.
 
-## Labeler Effects
+# Labeler effect options
 
 The following options work for all labelers (draw, paint, level tracing...)
 
-### Threshold Painting and Drawing
+## Threshold Painting and Drawing
 
 * Use Threshold to determine a threshold range and click on Use for Paint
 * Change into Paint or Draw and click on the Threshold button
@@ -184,7 +184,7 @@ The following options work for all labelers (draw, paint, level tracing...)
 
 Only voxels where the background value is within the threshold range will be set to the new label value.  The range is inclusive, so for example if the minimum is zero to ten, all pixels zero and above but less than or equal to ten will be included.
 
-### Paint Over
+## Paint Over
 
 When enabled, the labels are set to the new value no matter what their previous value was.
 

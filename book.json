@@ -1,8 +1,8 @@
 {
     "plugins": [  ],
     "pluginsConfig": {},
-    "variables": {
-        "slicerVersionMajor": "4",
-        "slicerVersionMinor": "7"
+    variables: {
+        slicerVersionMajor: "4",
+        slicerVersionMinor: "7"
     }
 }

@@ -11,9 +11,9 @@
 * Bidirectional interface for devices.
   There is no restriction on use, but Slicer is not approved for clinical use and intended for research. Permissions and compliance with applicable rules are the responsibility of the user. For details on the license see here
 
-Test: {{ slicerVersion.major }}.{{ slicerVersion.minor }}
-Test2: major: {{ slicerVersionMajor }} . minor: {{ slicerVersionMinor }}
-[Link](http://wiki.slicer.org/slicerWiki/index.php/Documentation/{{slicerVersionMajor}}.{{slicerVersionMinor}})
+Test: {{ book.slicerVersion.major }}.{{ book.slicerVersion.minor }}
+Test2: major: {{ book.slicerVersionMajor }} . minor: {{ book.slicerVersionMinor }}
+[Link](http://wiki.slicer.org/slicerWiki/index.php/Documentation/{{book.slicerVersionMajor}}.{{book.slicerVersionMinor}})
 OK
 # Citing Slicer
 

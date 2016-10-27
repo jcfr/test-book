@@ -2,7 +2,7 @@
 
 ## Python examples
 
-## Add a Ruler via Python
+### Add a Ruler via Python
 
 Use this code to programatically add a ruler to the scene:
 ```

@@ -13,14 +13,14 @@ Most frequent use cases:
 
 The Annotations tool bar at the top of the main Slicer window is used to add new annotations to the scene.
 
-![](Slicer4-Annotations-Toolbar.png)
+![](toolbar.png)
 
 * Create new annotations by selecting them from the drop down menu. Return to rotate mouse mode by clicking on the rotate icon.
 * To place multiple annotations: click on the arrow-down button and then click on Persistent option.
 
 ### Annotations module main panel
 
-![](Slicer4-1-Annotations-GUI.png)
+![](module-gui.png)
 
 * Annotation control buttons
   * Select all button: Select all annotations and hierarchies
@@ -53,7 +53,7 @@ Tips:
 
 ### Annotation hierarchy properties
 
-![](Slicer4-Annotations-ModifyHierarchy.png)
+![](modify-hierarchy.png)
 
 * Type: The class types for this annotation hierarchy
 * Color: Click on this button to bring up a color picker widget to set the color used for all annotations in this hierarchy when the hierarchy is collapsed.
@@ -67,7 +67,7 @@ Tips:
 
 ### Annotation properties
 
-![](Slicer4-Annotations-ModifyProperties.png)
+![](modify-properties.png)
 
 * Type: The class type for this annotation. For example, a ruler or a region of interest.
 * Color: Click on this button to bring up a color picker widget to set the color for all parts of the annotation (text, glyphs, lines)

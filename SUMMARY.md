@@ -5,4 +5,3 @@
 * [Extensions](extensions/README.md)
 * [Training](training/README.md)
 * Developers
-

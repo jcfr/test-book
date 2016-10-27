@@ -19,6 +19,15 @@ There is no restriction on use, but Slicer is not approved for clinical use and 
 | ![](slicer-tutorial.png) | The [Slicer Training](training/README.md) page provides a series of updated tutorials and data sets for training in the use of Slicer. |
 | ![](slicer-youtube.png) | [3D Slicer YouTube channel](https://www.youtube.com/channel/UC11x1iQ7ydSIFYw4L6wveXg?view_as=public) has been reorganized, new videos developed by the 3D Slicer community added to the channel. |
 
+<div class="row">
+  <div class="col-md-3">![](slicer-tutorial.png)</div>
+  <div class="col-md-9">The [Slicer Training](training/README.md) page provides a series of updated tutorials and data sets for training in the use of Slicer.</div>
+</div>
+<div class="row">
+  <div class="col-md-3">![](slicer-youtube.png)</div>
+  <div class="col-md-9">[3D Slicer YouTube channel](https://www.youtube.com/channel/UC11x1iQ7ydSIFYw4L6wveXg?view_as=public) has been reorganized, new videos developed by the 3D Slicer community added to the channel.</div>
+</div>
+
 # Citing Slicer
 
 To acknowledge 3D Slicer as a platform, please cite the Slicer web site [http://www.slicer.org](http://www.slicer.org) and the following publication: 

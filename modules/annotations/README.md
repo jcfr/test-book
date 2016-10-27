@@ -1,4 +1,4 @@
-# Overview
+# Annotations module
 
 Create and edit annotations, supplementary information associated with a scene. Currently supported annotations are rulers and regions of interest (ROIs). Use the Markups module for fiducials.
 
@@ -7,9 +7,9 @@ Most frequent use cases:
 * Using ROIs to crop volume rendering
 
 
-# Panels and their use
+## Panels and their use
 
-## Toolbar
+### Toolbar
 
 The Annotations tool bar at the top of the main Slicer window is used to add new annotations to the scene.
 
@@ -18,7 +18,7 @@ The Annotations tool bar at the top of the main Slicer window is used to add new
 * Create new annotations by selecting them from the drop down menu. Return to rotate mouse mode by clicking on the rotate icon.
 * To place multiple annotations: click on the arrow-down button and then click on Persistent option.
 
-## Annotations module main panel
+### Annotations module main panel
 
 ![](Slicer4-1-Annotations-GUI.jpg)
 
@@ -51,7 +51,7 @@ Tips:
 * To access Annotation Properties or Hierarchy Properties, click on the logo under Edit in the annotation table.
 
 
-## Annotation hierarchy properties
+### Annotation hierarchy properties
 
 ![](Slicer4-Annotations-ModifyHierarchy.jpg)
 
@@ -65,7 +65,7 @@ Tips:
 * List Glyph Scale: Set the annotation glyph scale for all annotations in this hierarchy. This slider is not initialized from the current annotation glyph scales but from the default glyph scale for a single annotation. Use the Default button to reset to this default value.
 * List Glyph Type: Set the annotation glyph type for all annotations in this hierarchy. This menu is not initialized from the current annotation glyph types but from the default glyph type for a single annotation. Use the Default button to reset to this default value.
 
-## Annotation properties
+### Annotation properties
 
 ![](Slicer4-Annotations-ModifyPropeties.jpg)
 
@@ -83,16 +83,16 @@ Tips:
   * Lines: This panel is only enabled for rulers. Set the line color, label visibility, label position along the line (from 0-1), tick spacing, maximum number of ticks, opacity, ambient, diffuse, specular material properites on this panel
   * ROI: This panel is only enabled for regions of interest. Set the ranges for the ROI along it's axes, LR, PA, IS. Toggle the ROI visibility and if it's updated interactively on this panel
 
-# More information
+## More information
 
 * [Developer information](../../developers/annotations/README.md)
 
-# Contributors
+## Contributors
 
 * Author(s)/Contributor(s): Nicole Aucoin (SPL, BWH), Kilian Pohl (UPenn), Daniel Haehn (UPenn), Yong Zhang (BWH), Alex Yarmarkovich (Isomics), Wendy Plesniak (SPL, BWH)
 * Contact: Nicole Aucoin, nicole@bwh.harvard.edu
 
-# Acknowledgements
+## Acknowledgements
 
 The research was funded by an ARRA supplement to NIH NCRR (P41 RR13218). This work is part of the National Alliance for Medical Image Computing (NAMIC), funded by the National Institutes of Health through the NIH Roadmap for Medical Research, Grant U54 EB005149.
 

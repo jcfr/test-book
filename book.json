@@ -2,12 +2,10 @@
     "plugins": [
         "github",
         "edit-link",
-        "tags"
+        "tags",
+        "collapsible-chapters"
     ],
     "pluginsConfig": {
-        "disqus": {
-            "shortName": "algorithm4bill"
-        },
         "github": {
             "url": "https://github.com/lassoan/test-book"
         },

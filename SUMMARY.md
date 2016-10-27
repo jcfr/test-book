@@ -1,5 +1,7 @@
 # Summary
 
+### Users guide
+
 * [Introduction](README.md)
 * [Modules](modules/README.md)
     * [Annotations](modules/annotations/README.md)
@@ -36,5 +38,13 @@
     * Multi-volume support    
 * [Extensions](extensions/README.md)
 * [Training](training/README.md)
+
+### Developers guide
+
 * Developers
 
+--
+
+* [FAQ](faq.md)
+* [Examples](examples.md)
+* [Release notes](https://github.com/GitbookIO/gitbook/blob/master/CHANGES.md)

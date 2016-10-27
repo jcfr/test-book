@@ -1,4 +1,4 @@
-# Overview
+# Editor module
 
 This is a module for manual segmentation of volumes. Segmentations (also known as contouring) delineate structures of interest. Some of the tools mimic a painting interface like photoshop or gimp, but work on 3D arrays of voxels rather than on 2D pixels. 
 This module is used for manipulating label map volumes. Each of the slice viewers can be operated on independently, although typically the same background and label layer will be used in all slice views. Whichever label map volume is selected in the label layer will be the target for each of the editor effects. Any scalar volume can be used as the background layer. For example, you may wish to create a label map volume based on a high resolution structural scan, and then edit while looking at a lower resolution diffusion scan.
@@ -9,7 +9,7 @@ This module is used for manipulating label map volumes. Each of the slice viewer
 * **Effect** refers to any of the editor tools in the editor tool box.
 * **Labeler** is a type of effect that modifies the existing label map; labelers have a common set of controls options.
 
-# Use Cases
+## Use Cases
 
 The overall goal is to allow users to efficiently and precisely define structures within their volumes as label map volumes.  These label maps can be used for:
 * Surgical/radiation therapy planning
@@ -20,15 +20,15 @@ The overall goal is to allow users to efficiently and precisely define structure
 
 The label maps can either be defined from within the Editor module itself, or you can use the output of other modules and the basis for editing.
 
-# Tutorials
+## Tutorials
 
 The [training](../../training/README.md) page provides several use cases that rely on Editor functionality.
 
-# Panels and their use
+## Panels and their use
 
 ![](800px-Editor-2011-11-24.png)
 
-## Single Label Map
+### Single Label Map
 
 A typical straightforward Editor workflow for consists of the following steps:
 * Load a volume.

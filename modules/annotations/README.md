@@ -67,7 +67,7 @@ Tips:
 
 ## Annotation properties
 
-![](Slicer4-Annotations-ModifyPropeties.png)
+![](Slicer4-Annotations-ModifyProperties.png)
 
 * Type: The class type for this annotation. For example, a ruler or a region of interest.
 * Color: Click on this button to bring up a color picker widget to set the color for all parts of the annotation (text, glyphs, lines)

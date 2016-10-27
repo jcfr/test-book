@@ -14,6 +14,7 @@
     * [Models](modules/models/README.md)
     * [Scene Views](modules/scene-views/README.md)
     * [Segmentations](modules/segmentations/README.md)
+    * [Segment Editor](modules/segment-editor/README.md)
     * [Subject Hierarchy](modules/subject-hierarchy/README.md)
     * [Transforms](modules/transforms/README.md)
     * [View Controllers](modules/view-controllers/README.md)

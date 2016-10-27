@@ -4,7 +4,7 @@
 
 * [Introduction](README.md)
 * [Modules](modules/README.md)
-  * [Main modules](modules/README.md)
+  * Main modules
     * [Annotations](modules/annotations/README.md)
     * [Data](modules/data/README.md)
     * [Data Store](modules/data-store/README.md)
